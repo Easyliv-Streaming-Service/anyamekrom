@@ -1,0 +1,1541 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ANYAME KROM — The New Africa</title>
+<meta name="description" content="ANYAME KROM — a cultural, spiritual, educational and media platform rooted in African identity, heritage and collective possibility.">
+<meta name="theme-color" content="#fff4d9">
+<style>
+:root{
+  --cream:#fff4d9;
+  --ivory:#fffaf0;
+  --gold:#ffcf65;
+  --amber:#f5a623;
+  --brown:#52270f;
+  --ink:#211911;
+  --forest:#263e2e;
+  --muted:#735a42;
+  --line:#52270f22;
+  --serif:Georgia,'Times New Roman',serif;
+  --sans:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ivory);color:var(--brown);font-family:var(--sans);line-height:1.6}
+button,input,select,textarea{font:inherit}
+button,a{cursor:pointer}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+.wrap{width:min(1180px,90%);margin:auto}
+
+.kicker{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#a26b1e;margin:0 0 15px;font-weight:700}
+.headline{font-family:var(--serif);font-size:clamp(34px,5vw,66px);font-weight:400;line-height:1.08;letter-spacing:-1.2px;margin:0}
+.headline em{font-style:italic}
+.lead{max-width:660px;color:var(--muted);font-size:14.5px;line-height:1.9}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 20px;border-radius:999px;border:1px solid var(--brown);font-size:10px;font-weight:750;letter-spacing:1.1px;text-transform:uppercase;background:transparent;color:var(--brown);transition:.2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.gold{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.btn.dark{background:var(--brown);color:var(--cream);border-color:var(--brown)}
+.btn.light{border-color:#fff8e6;color:#fff8e6}
+.btn.sm{padding:9px 14px;font-size:9.5px}
+.btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid #d88d22;outline-offset:3px}
+
+/* Header & Navigation */
+.header{position:sticky;top:0;z-index:50;background:rgba(255,250,240,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:10px;min-width:200px}
+.brand img{width:170px;height:auto;max-height:64px;object-fit:contain;object-position:left center;background:#000000;padding:4px 10px;border-radius:6px}
+.brand-fallback{display:inline-flex;flex-direction:column;background:#17130f;color:var(--gold);padding:8px 14px;border-radius:4px;border:1px solid #ffcf6544;line-height:1.1}
+.brand-fallback strong{font-family:var(--serif);font-size:16px;letter-spacing:1.5px;color:#fffaf0;font-weight:400}
+.brand-fallback span{font-size:8px;letter-spacing:2.5px;color:var(--gold);text-transform:uppercase;margin-top:3px}
+
+.navlinks{display:flex;align-items:center;gap:17px;font-size:11px;font-weight:700}
+.navlinks a:not(.btn){opacity:.9;padding:6px 2px}
+.navlinks a.active,.navlinks a:hover,.navdropdown.active>button{color:#b77a18}
+.navdropdown{position:relative}
+.navdropdown>button{background:none;border:0;color:inherit;font-size:11px;font-weight:700;padding:8px;display:inline-flex;align-items:center;gap:5px}
+.dropmenu{position:absolute;top:100%;left:0;min-width:200px;background:var(--ivory);box-shadow:0 14px 35px #22190f22;border:1px solid var(--line);border-radius:6px;padding:8px;display:none;z-index:60}
+.navdropdown.open .dropmenu{display:block}
+.dropmenu a{display:block;padding:10px 12px;font-size:11px;border-radius:4px}
+.dropmenu a:hover,.dropmenu a.active{background:var(--cream);color:#a26b1e}
+.navtoggle{display:none;border:1px solid var(--line);background:transparent;border-radius:8px;padding:8px 12px;font-size:20px;color:var(--brown)}
+
+/* Hero & Strips */
+.hero{min-height:640px;display:flex;align-items:center;color:#fff;position:relative;background:#17130f url('https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=2000&q=85') center/cover}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#16110de8 0%,#16110d88 52%,#16110d22 100%),linear-gradient(0deg,#16110d90,transparent 60%)}
+.hero-inner{position:relative;padding:86px 0;max-width:800px}
+.hero .kicker{color:var(--gold)}
+.hero h1{font-size:clamp(44px,7vw,90px);letter-spacing:-2.4px}
+.hero h1 em{color:var(--gold);font-weight:400}
+.hero .lead{color:#fff3dd;margin:24px 0}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.scrollcue{position:absolute;bottom:25px;left:5%;font-size:9px;letter-spacing:2px;display:flex;gap:10px;align-items:center}
+.scrollcue:before{content:"";height:35px;width:1px;background:var(--gold)}
+.sunstrip{background:var(--gold);color:var(--ink);padding:17px 5%;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:10px;font-weight:800;letter-spacing:1.5px}
+.sunstrip span{opacity:.65}
+
+/* Sections & Cards */
+.section{padding:88px 0}
+.sectionhead{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:38px}
+.sectionhead .lead{max-width:410px;margin:0}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:7%;align-items:center}
+.photo{min-height:400px;background-position:center;background-size:cover;position:relative;border-radius:4px;overflow:hidden}
+.phototag{position:absolute;bottom:20px;left:20px;background:var(--cream);color:var(--brown);padding:12px 15px;font-size:9px;font-weight:700;letter-spacing:1.5px}
+
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.featurecard{min-height:340px;position:relative;background-size:cover;background-position:center;overflow:hidden;border-radius:4px;display:block;transition:transform .25s}
+.featurecard:hover{transform:translateY(-4px)}
+.featurecard:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#20170ee6 0%,#20170e44 65%,transparent 100%)}
+.featuretext{position:absolute;z-index:1;bottom:0;padding:24px;color:#fff}
+.featuretext small{color:var(--gold);font-size:9px;letter-spacing:2px;font-weight:700}
+.featuretext h3{font:400 28px var(--serif);margin:9px 0}
+.featuretext p{font-size:12px;line-height:1.75;max-width:310px;color:#f4ead6;margin:0}
+
+.tile{background:#fff6e6;border:1px solid #52270f18;padding:26px;border-radius:4px;display:flex;flex-direction:column;justify-content:space-between}
+.tile h3{font:400 24px var(--serif);margin:10px 0}
+.tile p{font-size:13px;line-height:1.85;color:var(--muted)}
+.tilemeta{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 6px}
+.pill{font-size:9px;letter-spacing:1px;text-transform:uppercase;padding:4px 9px;border-radius:99px;background:var(--cream);border:1px solid var(--line);color:var(--brown);font-weight:700}
+
+.darksection{background:#211911;color:var(--cream)}
+.darksection .lead{color:#d2c1a6}
+.darksection .kicker{color:var(--gold)}
+
+.storycards{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:18px}
+.story{background:#fffaf0;border-radius:4px;overflow:hidden;border:1px solid var(--line);display:flex;flex-direction:column}
+.storyimg{height:210px;background-size:cover;background-position:center}
+.storybody{padding:22px;flex:1;display:flex;flex-direction:column;justify-content:space-between}
+.storybody small{font-size:9px;letter-spacing:1.8px;color:#a26b1e;font-weight:700}
+.storybody h3{font:400 23px var(--serif);line-height:1.25;margin:12px 0}
+.storybody p{font-size:12px;color:var(--muted);line-height:1.8}
+.linkline{display:inline-block;border-bottom:1px solid var(--amber);padding-bottom:4px;font-size:10px;font-weight:750;letter-spacing:1px;margin-top:14px;align-self:flex-start;background:none;border-top:0;border-left:0;border-right:0;color:var(--brown);padding-left:0;padding-right:0;text-transform:uppercase}
+.linkline:hover{color:#a26b1e}
+
+.communityband{background:var(--forest);color:#fff}
+.communityband .headline{color:var(--cream)}
+.communityband .lead{color:#e0e6dd}
+
+/* Subpages */
+#app{min-height:60vh}
+.pagehero{padding:76px 0 60px;background:var(--cream);border-bottom:1px solid var(--line)}
+.pagehero .headline{max-width:940px}
+.pagehero .lead{margin-top:20px}
+.pagecontent{padding:68px 0}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start}
+.eyebrow{font-size:9px;letter-spacing:2px;color:#a26b1e;text-transform:uppercase;font-weight:700}
+
+.statrow{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.stat{border-top:2px solid var(--amber);padding-top:15px}
+.stat b{font:400 32px var(--serif);display:block;color:var(--brown)}
+.stat span{font-size:11px;color:var(--muted);line-height:1.5;display:block;margin-top:4px}
+
+.timeline{border-left:2px solid var(--amber);padding-left:22px;margin:20px 0}
+.timelineitem{margin-bottom:24px;position:relative}
+.timelineitem:before{content:"";width:9px;height:9px;border-radius:50%;background:var(--brown);position:absolute;left:-27.5px;top:7px}
+.timelineitem h3{font:400 23px var(--serif);margin:0 0 7px}
+.timelineitem p{font-size:13px;color:var(--muted);margin:0;line-height:1.75}
+
+.pagecontent h2{margin:0 0 20px}
+.bodycopy p{font-size:14px;line-height:1.95;color:var(--muted)}
+.bodycopy h3{font:400 25px var(--serif);margin:28px 0 10px;color:var(--brown)}
+.contentblocks{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.contentblocks .tile{min-height:190px}
+
+.imageband{min-height:360px;background-size:cover;background-position:center;position:relative;color:#fff;display:flex;align-items:center}
+.imageband:before{content:"";position:absolute;inset:0;background:#20170ea8}
+.imageband .wrap{position:relative}
+.imageband h2{max-width:800px}
+
+/* Media Hub, TV & Radio */
+.media-feature{display:grid;grid-template-columns:1.35fr 1fr;gap:20px}
+.broadcast{min-height:360px;background:#302318 url('https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=1500&q=80') center/cover;position:relative;color:white;border-radius:4px;overflow:hidden;display:block}
+.broadcast:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#211911f0 0%,#21191155 75%)}
+.broadcastinner{position:absolute;z-index:1;bottom:28px;left:28px;right:28px}
+.radio-panel{background:#4c2b15;padding:30px;display:flex;flex-direction:column;justify-content:space-between;min-height:360px;color:var(--cream);border-radius:4px}
+.radio-panel h3{font:400 34px var(--serif);margin:0}
+.radio-panel p{font-size:13px;line-height:1.8;color:#e2d1b5}
+
+.eq{display:flex;gap:5px;align-items:center;height:48px;margin:15px 0}
+.eq i{width:4px;background:var(--gold);border-radius:4px;height:14px;transition:height .2s}
+.eq.playing i{animation:wave .85s infinite alternate}
+.eq i:nth-child(3n){height:36px;animation-delay:.25s}
+.eq i:nth-child(4n){height:24px;animation-delay:.5s}
+.eq i:nth-child(5n){height:42px;animation-delay:.15s}
+@keyframes wave{to{transform:scaleY(.25)}}
+
+.media-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+.media-mini{border:1px solid var(--line);background:#fff6e6;padding:22px;border-radius:4px;display:flex;flex-direction:column;justify-content:space-between;transition:.2s}
+.media-mini:hover{transform:translateY(-3px);border-color:var(--amber)}
+.media-mini h3{font:400 22px var(--serif);margin:8px 0}
+.media-mini p{font-size:12px;color:var(--muted);line-height:1.7}
+
+.streambox{background:#17130f;aspect-ratio:16/9;color:#fff;display:flex;align-items:center;justify-content:center;text-align:center;padding:28px;position:relative;border-radius:6px;overflow:hidden;border:1px solid #ffffff1a}
+.streambox .playcircle{border:1px solid var(--gold);background:#ffcf651a;color:var(--gold);border-radius:50%;width:64px;height:64px;display:grid;place-items:center;margin:0 auto 15px;font-size:20px;transition:.2s}
+.streambox .playcircle:hover{background:var(--gold);color:var(--ink);transform:scale(1.06)}
+.streambox small{display:block;color:var(--gold);letter-spacing:2px;font-size:9px;font-weight:700}
+.streambox p{font-size:12.5px;color:#d8c7a9;max-width:440px;margin:10px auto 16px}
+.livebadge{position:absolute;top:16px;left:16px;background:#b92b27;color:#fff;font-size:9px;font-weight:800;letter-spacing:1.5px;padding:5px 10px;border-radius:4px;display:inline-flex;align-items:center;gap:6px}
+.livebadge:before{content:"";width:6px;height:6px;border-radius:50%;background:#fff}
+
+.programlist{display:grid;gap:0}
+.programrow{display:grid;grid-template-columns:120px 1fr auto;gap:18px;padding:18px 0;border-bottom:1px solid var(--line);align-items:center}
+.programrow time{font-size:11px;color:#a26b1e;font-weight:700}
+.programrow h3{font:400 20px var(--serif);margin:0}
+.programrow p{font-size:12px;color:var(--muted);margin:5px 0 0}
+.tag{font-size:9px;border:1px solid var(--line);background:var(--cream);border-radius:99px;padding:6px 11px;letter-spacing:1px;font-weight:700}
+
+/* Search & Filters */
+.filters{display:flex;gap:9px;flex-wrap:wrap;margin:20px 0 26px}
+.filterbtn{border:1px solid var(--line);background:transparent;border-radius:99px;padding:9px 15px;font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--brown);transition:.15s}
+.filterbtn:hover{border-color:var(--brown)}
+.filterbtn.selected{background:var(--brown);color:var(--cream);border-color:var(--brown)}
+.searchbox{width:min(430px,100%);padding:13px 15px;border:1px solid var(--line);background:#fffaf0;color:var(--brown);border-radius:6px}
+.searchbar{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 18px}
+.hidden{display:none!important}
+
+/* Forms & Events */
+.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:flex;flex-direction:column;gap:8px}
+.field.full{grid-column:1/-1}
+.field label{font-size:10px;font-weight:700;letter-spacing:1px}
+.field input,.field textarea,.field select{padding:13px 14px;background:#fffaf0;border:1px solid var(--line);border-radius:4px;color:var(--brown)}
+.field textarea{min-height:130px;resize:vertical}
+.formnote{font-size:12px;color:var(--muted);line-height:1.8}
+.successmsg{display:none;padding:16px;background:#e6efdf;border:1px solid #a6c18d;color:#294a23;font-size:13px;margin-top:15px;border-radius:4px;line-height:1.6}
+.successmsg.show{display:block}
+
+.eventgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.eventcard{border:1px solid var(--line);padding:24px;background:#fffaf0;border-radius:4px;display:flex;flex-direction:column;justify-content:space-between}
+.eventcard .date{font-size:9px;letter-spacing:2px;color:#a26b1e;font-weight:700}
+.eventcard h3{font:400 23px var(--serif);margin:12px 0}
+.eventcard p{font-size:12.5px;color:var(--muted);line-height:1.8}
+
+/* Kingdom Cards */
+.kingdomgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:24px}
+.kingdomcard{background:#ffffff10;border:1px solid #ffffff24;padding:20px;border-radius:4px}
+.kingdomcard small{color:var(--gold);font-size:9px;letter-spacing:2px;font-weight:700}
+.kingdomcard h3{font:400 21px var(--serif);margin:8px 0;color:var(--cream)}
+.kingdomcard p{font-size:12px;color:#d8e2d4;margin:0;line-height:1.7}
+
+/* Modal */
+.modalbackdrop{position:fixed;inset:0;background:#16110dcc;backdrop-filter:blur(4px);z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
+.modalbackdrop.open{display:flex}
+.modalbox{background:var(--ivory);color:var(--brown);width:min(680px,100%);max-height:88vh;overflow-y:auto;border-radius:6px;border:1px solid var(--line);padding:32px;position:relative;box-shadow:0 24px 60px #00000055}
+.modalclose{position:absolute;top:18px;right:18px;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--cream);color:var(--brown);font-size:18px;display:grid;place-items:center}
+.modalbox h2{font:400 32px var(--serif);margin:8px 0 16px;line-height:1.2}
+.modalbox p{font-size:14px;line-height:1.9;color:var(--muted)}
+
+/* Footer */
+.footer{background:#211911;color:#fff5df;padding:55px 0 25px}
+.footergrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px;padding-bottom:40px}
+.footerlogo{width:160px;height:70px;object-fit:contain;object-position:left;background:#000000;padding:6px 10px;border-radius:6px}
+.footer h4{font-size:10px;letter-spacing:2px;margin:0 0 16px;color:var(--gold)}
+.footer p,.footer a{font-size:12px;line-height:2;color:#c6b49a}
+.footer a:hover{color:var(--gold)}
+.footnewsletter{display:flex;margin-top:14px;max-width:300px}
+.footnewsletter input{min-width:0;flex:1;padding:11px;border:1px solid #ffffff30;background:#ffffff08;color:#fff;border-radius:4px 0 0 4px}
+.footnewsletter button{padding:10px 14px;border:0;background:var(--gold);color:var(--brown);font-size:10px;font-weight:800;border-radius:0 4px 4px 0}
+.footerbottom{border-top:1px solid #ffffff20;padding-top:18px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;font-size:9px;letter-spacing:1px;color:#c6b49a}
+
+.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,120%);opacity:0;transition:.3s;background:var(--brown);color:var(--cream);padding:14px 20px;border-radius:8px;z-index:110;max-width:90%;font-size:12.5px;box-shadow:0 10px 30px #00000040}
+.toast.show{transform:translate(-50%,0);opacity:1}
+
+@media(max-width:900px){
+  .navlinks{display:none;position:absolute;top:82px;left:0;right:0;background:var(--ivory);padding:22px 5%;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:14px}
+  .navlinks.show{display:flex}
+  .navlinks>a{display:block}
+  .navtoggle{display:block}
+  .dropmenu{position:static;box-shadow:none;border:0;padding-left:14px;background:transparent}
+  .media-feature,.cards3,.storycards,.footergrid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:620px){
+  .hero{min-height:600px}
+  .hero-inner{padding:70px 0}
+  .hero h1{letter-spacing:-1.5px}
+  .section{padding:64px 0}
+  .sectionhead{display:block}
+  .sectionhead .lead{margin-top:18px}
+  .split,.two-col,.media-feature,.cards3,.storycards,.contentblocks,.eventgrid,.media-grid,.formgrid,.statrow,.footergrid{grid-template-columns:1fr}
+  .photo{min-height:280px}
+  .field.full{grid-column:auto}
+  .programrow{grid-template-columns:85px 1fr}
+  .programrow .tag{grid-column:2;justify-self:start}
+  .pagehero{padding:60px 0}
+  .pagecontent{padding:48px 0}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="wrap nav">
+    <a class="brand" href="#home" aria-label="ANYAME KROM home">
+      <img src="data:image/jpeg;base64,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EREREREREREREREREREREREREREX/9k=" alt="ANYAME KROM — The New Africa" onerror="this.outerHTML='<span class=\'brand-fallback\'><strong>ANYAME KROM</strong><span>The New Africa</span></span>'">
+    </a>
+    <button class="navtoggle" id="navtoggle" aria-expanded="false" aria-controls="navlinks" aria-label="Open menu">☰</button>
+    <nav class="navlinks" id="navlinks">
+      <a data-route="home" href="#home">Home</a>
+      <a data-route="about" href="#about">About</a>
+      <div class="navdropdown" id="mediadrop">
+        <button aria-expanded="false" type="button">ANYAME KROM MEDIA ▾</button>
+        <div class="dropmenu">
+          <a data-subroute="media" href="#media">Media Hub</a>
+          <a data-subroute="livetv" href="#livetv">Live TV</a>
+          <a data-subroute="radio" href="#radio">Radio</a>
+          <a data-subroute="programs" href="#programs">Programs & Shows</a>
+        </div>
+      </div>
+      <a data-route="culture" href="#culture">Culture & Heritage</a>
+      <a data-route="community" href="#community">Community</a>
+      <a data-route="contact" href="#contact">Contact</a>
+      <a class="btn dark" href="#livetv">Watch Live ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footergrid">
+      <div>
+        <img class="footerlogo" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAQDAwMDAgQDAwMEBAQFBgoGBgUFBgwICQcKDgwPDg4MDQ0PERYTDxAVEQ0NExoTFRcYGRkZDxIbHRsYHRYYGRj/2wBDAQQEBAYFBgsGBgsYEA0QGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBj/wAARCAD/AcwDASIAAhEBAxEB/8QAHQABAAIDAQEBAQAAAAAAAAAAAAYHAQUIBAIDCf/EAFIQAAEDAwEFBAUJAQwHBwUAAAEAAgMEBREGBxIhMUETUWGBFCIycZEIFSNCUqGxwdFiJDNDcnOCkqKywtLwFhc0RGOT4SUmVFaD4vE2U3SUo//EAB0BAQABBQEBAQAAAAAAAAAAAAAFAgMEBgcIAQn/xAA/EQABAwMBBAYIBQMDBAMAAAABAAIDBAURIQYSMUETUWFxgbEHFCIykaHB0SNCUuHwCBVyJDNiFjTS8ZKy4v/aAAwDAQACEQMRAD8A/n+iIiIiIiIiIiIiIiIiIiIiIiIiJhEREwmERETCYKIiJjCYRERMJhEREwiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiImOCIiLOEx4oiws8l9MikkeGRsc5x5BozlS20bPL1cMS1bRQwnjmX2iPBqszVEcI3pHYUjbrTWXKToqOIvPYPM8B4qI4XppLdXV79yjpJp3ZxiNpKtm36EsNuDXSQurJhzfOeH9EcPjlS202O41pEFptsjm8P3lm60efJQlTtDDGCWDPadAukW70UVbgH3CURjqGp+3mqcotnWo6pgdLBHSDOPp3gH4Le0uyh3OtvEeOnYxE/jhX9atlt5qg019XTUQ6gHtHD4cPvUxodktij3X1lZV1RHMAiNp+HH71qlZtw2M4Dx4DK2yDYfZeiH4xdK7v+2AuYYdlVmBPbXCsk7t1ob+q9f+q7TIaPXuAI5kzN/wrrei2b6YbgQWAz5+3vyg/HKkdDs3pm49H0jC0dD6OB+KgJ/SEW/md8gr7qbZOm0FGD/kf3K4jfsv0yWerLXtd39s0/3V45Nk9tc49jdahg6B0Ydj7138zZzO7H/d2lA8WMC/GbZPBOCZ9KUEnvYwrGj9Jm6cOd8wVgzjZKXQ0bR3Owv54Veym6R7xpLjSzAcmvBYfv4KPXDRWpba53a2yWSNvDtIfXafML+i1fsXtEmS/S0kfjA5zQP6JUQuOxCiaXGjra+ifnlLHvtHh0P3qbo/SXA44kPy+yjJtltlq3/t5HxHvDh9Sv59ujex5Y9pa5pwQRjC+COC7G1HsMuNTE8y2+hu0Yzh0Z3JAPuOfcVSmptjc9FM/wBCM9HKP92rGEDyd/n3rdLdtVQ1ujXYK1m4+jitjaZLfI2dv/HR3/xP0VRotjdLFdLNUdjcaSSE9CR6rvceRWvIwtja4OGWnIXP5oJIHmOVpa4cQRgrCLOFhVK0iIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIgREWeieS/eko6muq2U1JC+WV5w1jBklCQBkqpjHPcGsGSV+IBPepVp7Ql1vgZUTD0SjP8ACyDi4fsjqplpfZ9SW1jK27tZU1fNsJ4xx+/7R+5WPZ7Hcr1VdlRweoOD5X8GMHifyWsXLaBkIIhPieC7Nst6Li9grL07cZx3OZ7zy7uKi9l0xZ7FEPQ6YOmA4zyjeef08lN7To68XZoldF6LA7+FmGN4eA5lTyy6PtVoDZJGirquZkkHqt/it/VWNYtEXm+lkvZ+iUhwe3mHtD9kcz+HiuZXXajGX73ifoF0ma9UNog6CgYI2Dnj+Z81W1p0HYaANkqYvTZh9ef2QfBvL4qxbPo+93OFgoLaYqfpJIOzjHu7/JWjZdE2OzhshpxVVDRkzVABx7hyC1Wp9rukNL78IqjcqxmW+j0RDt0jo5/st7upHctDnvlVcJNylYXn5Ll+0G30VO0ySvAHW4+QWLTsuijaJLrcXPIHsU4wP6R/QKVw2HSljpxNPT0kDRx7WrePjlxXPl9266xvExp7HHFaYXZA7FvaTH+eRwPuAUJqI79eKr0i81s87y7O9UyGQ57wDy+5Tln9Hl/vrsDJ7GjzOgHxXD776YIgS2HL/HdHw4rqC4bXNnFmJjbe4Z3D6tDGZR7stGPvUTrflG6ejLhQWG5VGOTpnMiB+BcVRklBaKOMy3GrDQOBMkgYFq59XaOtzcRvbO4HB7KMuPxOAV1mz/0z1k4Dqk47ySfg3T5rn83pIvFWcUrMdzc/Mq7pflH1kpxR6Uhb4yVDnfg0LxS/KH1SDmPTtuA7iJT/AHlRlRtQo2OcyhssjuHBxeG58gPzWvO1G65O5ZqYDpvuf+q3yn/pgoWtzK/XsH3K+wXTa+r9qMOx4fQLoyl+UNfhg1WlqR4/4b3s/HK2cPyiqJz9y5aRqWM6mKcSfc5oXK8m03UBPq26jA7hvfqvtm1C8hv01poX+JL/ANVTUf0xWoghk2D/ADtUnFPtrF7RaT3j9l13SbU9lF+c2OsbJbpXcC6eAsx/OYSB8Vs59HaR1dQEWm6UFzgcM9m9zZmn4cQuOItqFGWfu/TjHO+1E/GPIj81tbbr3ShqGS0dZX2iqx++jLefTLSeC025f01XelBktdTvEcs/zzU1RekLaa1OBrKZ2BzH8PkrP178niCSilFHTCON2cwzDtYD7jzauT9fbFLxp6qfJSUskZOSKd/EO/k3cne7muvNI7XtU26Fzn3ek1LQDgY5nDtMdwcOPLhg59ymsF52b7T4HW6qhFnuEnqmjrmgMkcfsnkT3YwfBaW921WxknR3encYx+YDI/n8yulW30n2Padopbu3D+AJ0eO48+4/Bfy0lglp53RTRujkacOa4YIPivyPNdlbavk11UHbV9uge52MxyN9Z2PE/XH9YeK5Fu1orrNc5KGvgdFKw9eRHeD1C6XZNoKS8QiWndrzHUse97PyW/E0TukhdwcPI9R/gWvRZ4LCnFryIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiLIKL1223VV0uMdFSR78khwO4DvJ6BfHENGTwVcUb5XiNgyToAvu1WqrvFxZR0ce+9x4k8mjvJ6BXNprTdv0/R7kLRLUuGJZ3DifAdwX5WCxUlgt4p6cB8jh9LNji8/p4K3dGaJ32xXi8ReqcOhpnjn3OcO7w+K0W/X5rWEA4b8yvQ+x2yNNs/EK+vAdOeA/T2Dt6yvLpbRU9xLK65h8FGeLWDg+X9B4q17TYZaqWK2WaiHDg2OIYDR3nu95W207p2u1FXdhA0xws/fZyPVYO7xPgrhtdptem7U6OnayGNo3pZ5CAXY5uc4//AAuM3zaJ29u8Xcm9Xevm0W1RBOTkjlyHeo/pnZ9QWprau57tZV8wCMxxnwHU+JX66x2j6c0XGYayY1Nfu5bRU5Bf73Hkwe/yCrjaBtte+aWz6Nk3Yxlslzxxd/JA8h+0fJVLTUFRcJ31ldK/1zvF7zvPee/J/ErP2X2Aue0tS0SNLifyjkO08h815j2x9KQY50dI7ed+o8B/iOakmqNpWq9b1TqOOd1HROziipXFrSP23c3efBaClsnYgurngtHHdYeA815bxqOx6ZgMTR2lTjhBGfW/nHoq7umpr9qKQskkMFITjs2ZDf8A3ea9j7Feg+gt0bZK5ocerg0fU95XJqejvO09RkbxzzPHw6h8lP7lrfTlliMFKRUyN4btPjd83f8AyojX651Jc8iiAo4T1jGDjxceKiFwrbLYYe1uNU3tDxaw+s93ub+qh112k1suY7RTtpWchJJ67/0C6jV3ex7PM6EYLh+VoGngNB4rpVs9Gtut+H3N+8/9I1PieAVgVPAPqbtcd3qXyyY/rOUfrNZaXt4LYpHVcnL6JhI/pH8lVlbca6vnMtZVzTvPWRxOPd3LyrR7h6TKuTLaOMMHbqfstuhfR0Y3aOna3tOpVgVm0uUuLbfa4mN6OmcSfgMBaaq11qCpPq1McA7oowFGEWn1W1F1qTmSd3gceS+yXGpk4vPhp5Lby6lv0/CW6VB9xx+C8/zzdjxNxqP6ZXgRRjq+pdq6Rx8SsYzSHUuPxWyjv95jHqXGce92V6otV3qMguqRKO57AVo0VcdzrIzlkrh4lOmk4bx+KmVBr6tppQ98bo3DlJTyFjgrKsG2t74GUdxkjroc4LakCOQDwfyVBrIOFMxbV1hZ0NViVh4h4BUXXWmjrxioiBPXjB+IXf8As921mSGO0yz/AD1ai3DrZXvAqIh3xPPPHdx8l+O1zYdp3aRpSfU+ip2zPjy6SPG7LA/7L29D48j964Ztt9udrkY+lqXgMOQ0ngPd3eSv3Zd8oOvtV9pzcK6SmqMdn6Tjf328tyRvKVp7jx7srnt52HoaqX+5bMu9XqeJjJ9h/YDyJ7Vfs9yuOz2Ymk1FKdHMdq4DsPPHLn1KgLxZq+w3ie2XGF0U8Ti1wIxla1dwbXtnGnds+hJdY6IpoYNQ0cfa1NDC8OEjPtxn6zD06g8D0zxLUQS0tTJTzxujljcWvY4YLSOYKrtF0dWsdHOwsmjOHsPEH7HkVLVUdO9raqidvQv4HmOtp6iF+KLJ4hYUwsJEREREREREREREREREREREREREREREREREREREREREREREREREREREREREHNEHNEX6RsfJK2NgLnOOABzJVu6U07HY7bvStBrJRmR32R9kfmo3oGwdpN89VUeWMOIGuHN3V3krm0bpt+or2GShwo4MPneOGR0aPErVr/dGxNMecNHH7Ltfo62aZBF/eKwa/kHUOvvPJb7QWkhWOZebnFmnacwROHCQj6x/ZH3q7dL6dqtR3T0eMmOnZ6002PZHcPFa+0Waa6XGntdvia0nDWgDDWNHX3AK9LTaqHTlibSwFscUTS+WV2Bk4y5zj/nAXB9or65zvZ948B1BS+0l/MYOup4dg619Rx2nTNgdl0VHQ0zC98jzgAdST1K5z2j7Tq7WFa60W7tKazNfhjBwdUH7T/Dub8eK+9qO0SXWNz+a7VI9lnp3+o1v+8uH13eH2R58+UTo6WCioXVdYWskY0vc554Rj3rc/Rl6M6q91QfIPa4uJ4NH/kV4/wBvNu31j3UdG72M4JHFx+3msUdsio2unrt3IGfWPqsHeSoVqbaA98r7dYXHB9V1SBxd/E/VazVWsanUE5tlt3mUYPTgZfE+Hgo5VVVv09a3VtfIAeQxxc8/ZaF722e2ZtuzFDoA1oGSTxPaT9Fg7H7CS3N3rdad1g454D7lfo6JsUcldc52tDfXcZHcB7z1KheoNoTjvUlhG40DdNS4cT/FHT3qNah1PX3+pIe4xUrT9HA08B4nvK0a0HaXb+erJp6A7kfXzP2C662ohoo/Vrc3dbzP5j4r7nnlqJnSzyvle45c55JJK/NZxx5BbGk09fa/sjQ2a4VPagmPsaZ798DqMDj5Lmr5B7zz8VgAOcdNVrTzWF6a6grrbVmluFHPSTt5xTxmNw8iAV5l8BB1C+EY0KIiL6viIiIiIiIiIEREWVkFfKJlFamybbTqDZtqKnniqHy0jX5LXHe3AeBwDzBHMciOfTE6+UHouw6hsNNtr0B2T7XcHiO7UsHH0OoPJ2OjHdD3rnFWXsn2jxaQu1TZNRMlrdJ3iI0dzogcgRu4do0faafWHiFj10PrEjaof7zBjP6m/pd1/wDE8j2KiEerucWe6/3h28nDtHzGirXiOiwpDrTTb9KazrLN24qaZhEtJVt9mpp3jejlb4OaQfio8r7XBwDgq0REX1EREREREREREREREREREREREREREREREREREREREREREREREREREREXutNumul5goYR60jsE9w6n4LxKxtnVq3aee7yMG889lET0H1j+A+KxayoFPC6RT2zVndd7jFSDgTk9w4qcW6gbFDTW6hiOBuxRMHNx5D4roXTWno9PachoQ0GY/STPx7Tzz+HIe5QPZNps3G/y3qdmYKIYjyOBlPL4Dj5hdC6PsLbtqRr5o801NiR4I4OP1W/H8Fwzau8BjjGToNT39S9CXytio4uhZo1gGnkFLtCacFmswq6mPFbUgOdnmxvRv5lV7tq16Wb+jrVLzH7vkafMRfmfIKzNdani0joupumWmoI7KmYfrSHl5Dmfd4rlOGOe53WSpqpHTOe8yzPccl7icnPvK1zYfZ+o2guTZN3LnOw0dvX3NC8lelDa98LDRxu9t+ruxvV4r9LXRGF3pkwxwyzPQd6rzXWqZLrWm1Wx59FY7D3M/hXfoFJdf6jNrtotdK/FTUN4ubzjZy+J5fFVtQxiCF1ZO4Nbul2T9VvUr9J9jNl6bZ+3tiYOGpPWeZP07FznYTZeS8VbZ5RhvHuHX9l8VFTRaesz6+scAQOnN7ujQqjvl8rtQXU1NSTj2YoW+ywdAAvZq3UT79eXGMubRw5bCw/e4+JUu2Z7N9R12rrTfK+0vgtMMrKl0lSN0TNByA0cznh4LlG322orHOY12IWZxrjeI/mgXc5T05bQ0bcRN008ypHs12LPqC+560oR2EkJbBRlxDwXD23Y9kgchzzx6KeWv5PWg6e6w1M5udZGziaeonbuPPTO60HHmrLgiDuIbhbmkhzg4C8w3Dayvkkc9khaDyHJbpTWOkjYGuZkjmVmy6es9rpWU1ttNFSQDlHDA1rR5YUpgpG+qWNDS32d0AY9y89BECBwUipKcHHqrQqyulc4uc4k96mmQsaMAALhf5S2n9SP211d1m05cYaSWnjEdVxmjma1u7vgtGGcvZPEczjKpDBX9coKNj2BsjQ9p+q4ZHwKpHaZ8kbSeu7xX6i0/cprBeKo9oYhG19G+THMsADm5PMgnjxwulbOekyiYxlJXN6MNAAdqRppqOI+a0O7WJ/SOlhdnJzhfz9bFI5jntYXNYMuIGQ339y+d0r+qWzTZFZdE7HKLRNxtdpr5DTmO5StpgWVj3E7xdvDJGCBx7uQUD1L8ivZXqN9RUWR1003UEF7RSS9tC0/wAnJk48A4KXpfShbZal8EjHBoOA4DII6+sfNRclmlawOBC/nTgrC6l23fJNptm+y+TV+l75c7sKFzBXwVMLRuxu4GVpbyAJbkHPtDiuWzwW72m8Ut2g9Yo3bzc46te5R09O+B25INVhERSasIiIiIiIiIvoA54LGF0HsR2b2Wt0nUaj1TZoK8Vbuzo4qluWtY3m/HieHuHio+53KK3QGebh1DiVmUNDJWy9FHxVIV16qLjYLfbav6R1vD46eY+0IXHe7M/stcXEfx3eC1SnG1PSA0dr+opKaPdt9SPSKTHIMP1P5pyPh3qDrJpZ454myx+67X4qxPC6GQxv4hMFZwVYexzT9l1Hrmpor7RNq6ZlG+QMc4tw4OaAeBHeVu9qmyuGyNN+0vG99uDc1FICXOp/2h1LO/qPcsKS708dWKN5w4jI6u7vWUy2zPpvWW6tHxVQJhZUn2d2y3XnadZ7ZdYO3op592WMkjeG6TjI8lITSiKN0juABPwWHFGZHhg5nCjGCmDldI672e6Es2zi6XK3WFkdXBGHxSdrId07w6F3Ffro3SOyzWGkKa7Uumoo5fYqYvSJCYpAOI9rl1HgVr//AFPT+r+tBjt3OOH7qZ/sM3TdBvDexlc07pWMFWNtZ0HFpHUjKu1RYtFZxhGS7sXj2oyT8RnofBV9BTzVNVHTwRuklkcGMY0ZLiTgAKcpaqOphbPGfZKiqimfBKYnjUL890pgrp/S2x3R9LpKkhv9rbW3Qt355jM4AOP1RggYHLPvVHbQp9LP1dJR6Qt0dPQU2Yu1Y9z+3fni7iT6vQfFR1De4a6Z0MIJ3eJ5LMq7VJSxNklI14DmojgrGMLrDQGxnS7NjscWp7TBLeLlE6V1RKz6SlDx6gb3FowT4khcwX6z1dg1HW2Wubu1FJM6F/jg4yPA81Vbr1T18ssMJ1Ycd/aOxU1lsmpI2SScHfLsK1yyATyWFd3ycdHab1Zfr7/pLaYLjBTU0e4ybOGuc8+sMdfVWVca6Ogpn1Mo9lvV8Fj0lM6pmbCziVSOEU82r6Al2f7Qai2xbz7bOTNQzH60ZPsnxbyPuB6qCK/TVEdTE2aI5a4ZCtzwvgkMcgwQsYWd04X2yN8sjY42lznEABoySSuoNIbFNLUezBz9T2ttXfJYJJ3OfK5ogcWEtYMEDhwz45WFdLtBbmtdN+Y4ACyqG3y1hcI+QyuW8JgqxtkGnbLqHX9Vbr9Qtq6eOke8Mc4tw4OaM5BHeVeP+qrZuDg6ci/50n+JYdy2ip7fL0MrSTjOiyaKyzVcfSMIAzhckYKzgrrR2yrZvnA05Fj+Wk/xLRay2c6CtugbvXUFhjiqoaV74niV53XAc+JWJDtdSTSNja12SccP3WTJs5URtLy4aLmdFk81hbUteREREREREX0xpfI1rRkk4A71elmoG26yUtCwfvbBnHVx4n71Umk6E1+r6KLdLmh++/HRo4roXR9pde9dWy3EEtkqGl+OjQd4n4BavtJVCNgaToASV2j0U0DWR1FxeOHsjzP0XQOhNPCxaCoaZ7cTSME838Z3H7hhXdpS1i3aejywCaf6V/fx5D4YUSt1v9MuVPBu+q54yPDmVPLzXxWbTdZcntG7TwukDc4yQOA8zgLzBea19XLuji8rC2nuvsFzzpq4rn/bTqJ131n81wyb1JbR2eAch0hGXO8uA+KhDXQWuzyVNQdxjGGWQ9cDov3qI5KuvdPUPdJJI8ySPdzcSck+ZUP2m3M0tgit0biH1Tsvx9hvH8V7N/p+2UY2M1zh7vsN83FeKbzPJeLsd/8AOcnsH/pVzX1c9+1FNWzkkSOLiPst6D4cFGNoV79DtzLPTOxLUDel3fqs6Dz/ACUloQyGmdPIcNILie5o4/kVTd6ucl2v1RXSHIkf6o7m8gPgu6+kO9eo0IpITh0mncBx+y9DWmkbabQxjBh8uvc3kPgpxsh0QdSaoF1uNIJbRQuzIHj1ZpMeqzxxwJ8OHVdR07Q5gAHAcAoZsuhhi2UWYQUwgY+DfcAc77ieLj4lTqmbggZwvEO09yfV1bmu0DDgDu5+K3+yUTaanaW6l2pWypWcgAt3RxjK1tJFGSA6YDyW/oqaLhmpaPJaLUvwp9oW1t7Bw4KSUbRkLVUNLTjBFU0+S39LTxEj6cLW6uQZXx7sN1WzpGA4yt1SwtOF4aOngGM1LR5Lf0lLT8M1bR5LBpaR9RKAOHeterJgF6KS3ic4wMlbyjsLmsk3gBlhC/a0UtPvjdna/wAlImgYAC7pspsdTyxCecarUa2veHbrVXV40zTT0FRTV9NFPSTRujmhlaHNkY4YLSDzBBIX8pflFbKGbJds1VZ7fvGy1zPTrdvEkxxOJBiJPMsIIzx4bpJySv7H3aKB9KRJIGe9cdfLX0zaK/5OtVefQmVlxttbAaedsZL6dj3ESHP2SMZ6cir9BB/05eWU8J/Cl0IyOPI+HBJH+t05c73mr+bWOCwvor5XVFDIiIiIiLIA6oi3uj9N1Oq9Z0Fjp8j0iQCSQD97YOLneQyuxJJaCzWult1II6elgaynhYTgdzR7yqi2HaabatPTanrGYqa4dnBnmyIHif5xHwHitNtt1lML/b7Hb6jddRObVyuaf4TmwH3Dj5haBeGuvNxbRRn2GZz38/stytu7bKI1Ug9p3Du5fdTTatpx2q9DTTQsD6635ng4cXN+uwe8ccd4C5gLcdV1RYtSR33TNJdY3NzNH67Oe6/k4fHKoTaFp4WDV0pgj3aOqzPD+zk8W+R+7Cz9mKh8O/Qy8WnT6j6rEv8ATtkDauPgeP0W+2Iydlr6qOcfuJ4/rNV++khxIwHBwwQRkELnfZDL2WtKhx60jh/WarJ1ZqqXTtqguELe1YKhjJY+rmEHOD0PBYF/on1NxDY+JAWbZahsFCXP4ZKg203Z220zyX6xRA0DzvT07B/s5PUfsfh7lHdmJ3drNkP/ABz/AGSrvob1br5aG1dJKJ6eZuMOHfzaR394UIZopti2mWq/WgYoDOXSQ54wHdPLvafuWfR3R7qeSkqvfAIBPPTge3zWJU21rZ2VNPq0kZ+PJT3aTVg7LbxGXcXQjh5hUjs31nLpHVQM0jjbasiKqZnkOjx4jPwyrT17Vdts8umT/BfmFzzkg8FVs5RsloJIZBkEnPwCovlQ6OrZKw6gfVddaitNs1XpOe01b2uinYHxTN47jubHj4/Aqtdlmz2azahqb1qCnHbUkjoaSM8QXDnL7u73r52SavfX2x+nq+RzpqSPfgeeO9HnBafcSPI+CnN+1NBYLBU3Sdpc2FuWtH1ncgPMqCc2soDJbY9Q86ePV381Lt9WrAyud+UfzPco9td146z2U2G3S7tdWsxI5pwYojzPDq7l7squ9jekBqzaRTyVcQfbreRVVG9ydg+qzzOPIFQq73Wtvl7qLpXymSed5c49B3AeA5BdQ7KNOR6V0DBBIzduNYRUVOeYJHqs8h95Kmq4NsdrMUX+47TPaeJ8OSiaUuu1fvv9xuvh+6si4XSFkzIXva2VzS5seeJaOBOO4ZHxXPW33TTJpqbV9FGASBTVmB3fvbz/AGSf4q0+pdpsx27RXaGftLdbnGja1p9V8ecSO8zx9wCt+6R0N909UW+rw+mq4i3I7iMhw93ArXaKhlsU8FS7UPGvjxHhoe9TNRURXWKWAcWnT6H6LkXCv75MkpgrdTP3sAxU4/rPVHXe2VFovlVbaoYlgeWE9/cfMcVc/wAnw9hRX6cnAc6Fnw3j+a3PabdktcuOBA8wtYsYLK9meWfIq2dpelaTXeiZrc/cbcIj21FMfqyAeyT9l3I+R6LjiqpZ6OslpKqJ0U8TyySNwwWuBwQV1tW6vpqPWdFYqoiM1kD5IZCeBe0+z5jkq82i7PXam1dR3e2GOH0qRsVaeW6B/C46nAx8Frmy1c+gaKeq0Y4bzT5/zrU3faEVR6aDVwOCFpdiejG195Gq7nEDS0j8UrHDhLMPre5v4+5dCS1nbMkjLt0PaW/EYUCuV2tehdEtjiZuwUzBDTRDnI/oM95PEn3rbR3HtGRl7sEgE4UVd5JrhOKpw9jOG+CkrbDHSRdAD7XE+KpXY64QbULlh2A2mlGf/UarT2h3WrotmlyrLfWS09TGGbksTt1zcvA4FVRs3xS7VbwwHg2OZo/5jVbc9XTGB0dUInQu9oSgFvnngpq9gNuEcxbkADTrUbadaN8YOCSdVzydeaz/APM9z/8A2CvxqtZarraSSlq9QXCaGVu6+N8xIcO4hdANi06Dvej2og8fYjUD2r/NH+i9MaGCiZKKgZMDWA4we7opujucM8zYxBjPPA0+Siqq3ywxF5mzjlkqnjzWFk81hbGoBERERERERTfZpT9rqOpn6QwE/EgfmunNiVCyo2iPqntJNNTPc09znEN/BxXOmy2Mf9oy4GcMb95XU+waJpr7xMR6wELQT3Hfz+AXM9uZyyKYj9IHx0+q9D7HRCn2SMg4uJ88LpPSlNvXJ8xGdxn3n/JXl2sVZp9B+itIzVTsjIPVo9Y/eGrd6Tj/AHNUSdchv5/mohtfJkNrp88AJJCPfgfkvPVH+JcmZ4D6arjO3VU5lHORxxj4ql5o2tORwJVKbQq01mtZYGu3mwNbEB48z95V3VXqTFncuerrJ6VqmrqDx36l7vvK/T30Q29tHs/TADUt3j3u18l5w2WphV3hwPWG/E4Wk1dV/N2jJwxwD5MQt7+PP7gqutVunu98pLZSlgmqpWxM33BoBccDJPIKbbSKl7aKgo8Dde58pPXIwPzUItla623mluDI2yOp5myhjuTt05wVpHpDrH1F0kY38gAHfjP1Xoe7vaasR/lbgLtaw2SKxadobJDxjpIWxA95A4nzOSt3DGA7hzUf0NrC0670w27W8tilYd2opS8OfA/uPgeYPVSZgweAXke4CZk72zjD8nPeujUpjdE10Xu40XupoxvZJ4rc0793AxwWkgfjmtlBMBjKg5mkrLCk1ARwK39NKCQojSTkYwVu6WpyRkqDqYiUIyFL6SUYC3tJO0YBKh9LUgY4re0Uo3e0ldhg+/wUQ1ro5A4KHrINMqeWqo3G9q9+6wdT19y38F3hla7HDDd5Vqbs+QgA7rByaF7aG5O+m9Y57Mro9j23dQlsEXDn2rV6q1l+XlSC73UVDSM4xyVf6hhp7raqy21jGvgqonwSscN4Oa5pByOvAr21FwL2H1lpaup3gePFaneL7NcqkTE6g5ypigtwjG7jRfzA2pbJ9V7K9TegX+kY6knc51HX053oZ256HmHDq08R4jBMB8F/SrbDs9ptqWgDpye4uoJGVDKmKoEQk3XDIIIPHBBPJVJavkobPrdmW63S8XRw+oXtgb57oJXbbN6RaOSia+vOJeBABOe3q171D1Wy9T0xFOMt6yVxgQsKb7XLNZtP7Z7/AGaw04p6CmqNyOEEkM9UZaCSSQDlQgrolPM2eJsreDgD8VrM0Rie6M8QcIt1pawzaj1RS2yLO6929K4fVYOLj8PvwtN0Vx7MLdS2nTjr1NUwtqazIa0vGWxg/mQVj3KqNNA57R7XAd6ybfTiecNdw5q0nV9DbLUwPkho6Smjawb7g1rGgADn5LR1OpNFSvdNJcrFK93MudE5x95PFV1tV1EyWClstHMHh3005ac/xW/iVVeVrFt2dEsXTyuIc7qWwV186KToo2ggLo6kvViqKn0e23G3uc7LmwwSMBPDJw0LS67tzL/pV8EbN6ppz2sLhzzji3zH3gKk6GsmoLjDWQuIkieHDj3K86G50dZbYK6Koj7ORgcA5wyD1HxVdVbXW+Vk0RJSmr210b4pAAq72ZO7PVs5ORimdn+kFJto8wk0acf+Ij/By8lFb4bftIqKmmexlNVwOkb6ww07w3h8ePms6+mhOkeyZKxx9IYcBwPRyzX/AItfHKBpgLFYOioXxk6glQzS2qavTdy7RuZaR5HbQZ5+I7irlpLtT3SjZWUcgkheN5rvy947lz0t/pnU1VYKotBMlJKfpYc8v2h4/isy6WptSOkZ74+aw7bcjTno3+75K09ZVG9oW4szxMePvCo3qra1DcKa4aFq56adj43xZBzz4jp3+CqU+0vljiMULmkY1X28yCSVpac6Ke7Jn7mtKj/8N/8AaYpztHqA7Z1WMHV8f9pV5s0lZDqyZ8kjWN9GcMk4+s1TPXtRDJoSpa2WNzi9hAa4H6ywa+Iuucb8dSzaKQC3vbnrUM2a2Bt51nDUVMe/R0RE8oPJxB9VvmfwXQ9Zfrbb2CevuFNRxvdutM0gYCeeOKr3Q9HS6f0lHA+ogFROe1nG8MhxHBp9w/NV9tMv7brqb0Kml36WjG4CDwc8+0fy8isSspHXeu3HZDG8/wCdZV+mnbbKPeGC9yuWq1JoSRm76dp7e+00Q/kF9Ut7tdcXNoLhSVLYgARTyNcGjpwHLkuYMnvUi0ZePmjVMMkry2nm+il48geR8jhX59mWNiJa8kjhlWIL+4yAOYACpptXsoqBFqKmj4sAhqN0cx9Vx/D4Lc7F3iHSNykzgmrAP9ALa1L6K42+ahqJ4ewmYWPBcORWj0JB8y2m42+oqIw8VhDTvD1gGgAj3rHdJJNbXU7gcjHwysoRMjr2ztOhz8Vrtsde/wCfrLPTSGOWGNxa9pwQ7eyCpppLVbNRaaiqpHtZNH9HO3kA4dfcearjao+N9fbSyZkh7N+d0g49ZQugu9fbIaqKiqDE2pj7KQDqPyPP4rOjtLaugijOjhw+KwpLkaatkfxBUo1xqt+o9Vw00Epdb6SUMi7nnPF/n08PereiquDBvcAAucKT/b4cn+Eb+Kvc1UBjDW1EfEfaHcrd5o2sjiijGgV201RkfJI86lQ7R7gza1eyBugtl4f+o1SXXVT2mg69jWknDeI/jBRawyMpdqt5LpWYLH4dvDBy5pU4FVBuHemhIPQkFW68FtTHKG5wArlFh1O+POMkqgj2nc74LBD+od5hX62ShA4ups/zV4b1LQ/6N3Aj0Un0aTHs5zulSLLyXODeiKwH2jdaT0gVHHmsIinVBoiIiIiIiKzNlhBpri3rlh/FdSbC3hk13b4w/wB9cpbKpv8AtO4UxPAwh+O8h2PzXTexmrMWo66l/wDuRNf/AEXY/vLl23MZdHMOwHyXpHZHE2x4DeRP/wBl11pEg2yf+UH9kKG7VGb15ocjIFO7+0pVoqUPpqiP+K78lpNp9NvPt045EPZ+B/NefaJ25cNef2XB9vIyaaYdRCoy4jFdKAMYPD4LnBxJuTyee85dK3qIw3NwznIBXOFdGabUFTCRxZM9v3lfqj6NZ2z2Clezh0TPkMLhGwxEV6c136x5qvNo7nfOtGzJwIjjzP8A0UKz8VOtpEYFVb5ermPafIj9VBcrk214IvFQD1/QLt92H+rkz1/RTnZbr7/V9q99ynpHVdJUQ9hPEx2HAZBDm9Mgjr3ldg6fv1m1PpyG82OsZVU0gGS32mHq1w+q4dy4FHevdQXm7WpszbZdKyiEzd2UU8zoxIO52CMj3rmN/wBlobq4StduydfEEdoWbab7JQjo3DeZ1LvqOogdP2LJo3P6sDgXDyUcvG1PQumq11Jd9RUsc7c5ihzM9pHQhoOD4E5XD7Z5mPL2TSNd3hxBX55JdknPvULD6PqcOzNKSOwY+6kpdrZC3EcYB7Tn7L+ielNVWTVFhZd7DXMrKNziztGgtw4c2kHiCMhSeCp45BX87NO7Q9Z6VtFRatPX+poKSd/aSRxhp9bGMgkEtOO7HILtHZFe75ftlVqvmp5YvSZ2ufljd3ejDiGEjPMgZ8wtK2o2QNqYahrwWE4A5+OinLPfG1x6Mtw4DJ6lcVDKOyEsh3WD71sm3DtCBvYHQKGfOZkeN07sY5NHReyCuwB6wXOpaQnUqddGHcVMWVY3ea9dFW5Mo3v4MhQ5txPevdR143ZCDx3CsM0zme0FZlpQ5q2stXwPrLWz1eeq10lwBHNeKat4cCr0VL2LIjha1empqefHgoNtG1nBorZ5c9RTPaZIIiKdhP75M7gxvx4+S9+oNT2rT9kmu16r4aKkiGXSyuwCe4DmSegC4s2ybWqnaRfo6aibLTWKjcfRoXHDpXcjK8d+OAHQZ7yt/wBktmJblUte9uImnJPX2DvUVe7syihLQfbPAfVVzca+qul2qLjXTvmqaiR0ssjzkucTkleUpwWF6DADQAFyokk5KKVWbZ1rS/2mK5WexT1VLJncka9gBwcHgXA81FV1BsaqOz2R0IzgiaX+0oa+3KS303TRAE5A1UnaKJlZMY5CQMZ0VIV2y/XduoZqyt07URQwsMkjzJHhrRzPByh66+1zUmTZtfDnBFG/8FyF1VvZ+6y3GF0krQCDjRXLxb46KRrGEnI5rGOKlVr2da1vdriuNssFTPTSjMcm81u8O8BxBx4qR7MNnQ1BWMvV8ic21RuyyI8DUuHT+IOvfyXQvpUVLTb2WQxRM48mtY0D4AAfBYd52j9UkEFM0OdzzwHZpzWTa7J6yzpZzut5fzqXL9Rss17SU76iq0/NFFG0vfI+aMBoHMkl3AKM2y2V95u8FrttO6oq6h25FE0gFx7uKsPahtNm1PM+x2eVzLPG713Dgalw6n9kdB15lR3Zk7G1uxEHlUjH9EqVpqiq9UdPUtAdgnAz1c1gTw0/rIigJLcgZP0XrOx/aNn/AOl6nh/xI/8AEsf6odo3/lmo/wCbH/iXVj6vd9UHJXnnulFSv7OoraeJ5Gd2SVrT8CVpTds65xwImn4/dbOdmaVupefl9ly0dkm0UHdOmanPd2kf+JR+7aZ1BYji72atoxvbu9NCQ0nwdyPkV2FT3KjqZhHBW00r/sxytcfgCv2qZmVMDqadjZYnAtdHIA5rh1BB5q/HtlUscBNCMdmR55Vp+zUDh+FIc+BXEOVnJ71cu1nZnb7XQO1LpuHsYWn910jeLWZPts7hxwR05jhwFNeS3egroq6ETRHTyWq1dJJSSGKRAfgpBp7ROptUvJs9rlmiBw6d3qRt/nHh8FONmmzOK5xRag1HCTRk5p6R2R237Tv2fDr7ud5RGKmhZDSxMiiaN1kcYDWtHcAFA3faVlI4w043nDieQ+6mLdYnVDRJMcN+ZVIUmwO9yRA118t9M/q1jXSY8xhfdXsBvUMJdSX+31DujXMfHnz4q3LhqvT9qkMd1vFJSSD6sj/W/ojJ+5fnbtZacu03o9vvdHPITgMEmHE+AOM+Sgf77eCOkDfZ/wAdFL/2i3D2Cde9c3ai0FqrS7DJdLY8U+cCphIkj+I5eeFGsnPMrsoyB4LJGhzTwLSMg+8FU5tI2Y0phmv2l6bsnMBfPQxj1SOrox08W/DuU3atp21DxDUt3XHgeX7KKuFhdC0yQHIHEc1S+T3qY6M2bal13SVdRYm0pjpXNZIZ5uz4uBIxwOeAUPPNdG/Jxd2ejr048N6tj4+5h/VS18rpKGifPFjeGOPeoy1UjaupbE/gVR2q9JXrRt+NovlOyKfcErXRu32PaerT16jyWi9bvXW+1rSEettIEU0bTdaEGSleObx9aM+/HDxwuSnsdHI5jmlrmnBBGCCrdiu4udMJDo8aEfzkVcu1uNDNuj3TwK+clZyeWV84WQOKm1FZWwslnuGoL9TWi2RdrVVDt1jScAd5J6ADiSpjdtjutLPZKm6VkNF6PTxmWTcqQ47oGTgY4qyNjukGWCxm/wBdFi4VzAI2uHGKLn5F3P3AKaavqO00BfGOPOgmH9QrTK7aWRlaKenALcgEnv1wtopLG11KZZiQ7GR+65CPNYRFua1dERERERERS7Z1VtpdbwxO/wB4a6Ie8jgulNm1d6DtDowX4ZUB0LvHIyPvAXJNsrDQXimrG84ZA/h4FdH26tMNZS3KncRuuZO0t6citK2spekH+QIXoH0S1Iq7XVW0nUajucPuF3Hoeq3a8xk4EkZGPEcf1Wz1/SdvpTtwMmnla4+APA/eWqC6QvEb/Q7hC7Mbg2TyKtqvpI7nZqikJ9WaItDu7I4H815dr2mlrWvPWud7YW8v6SPHvA/ELmjUtNumGqA4Oy0n71zrrOi9C1vV8DuyOEw8+f35XUepaGV9rnhMZEkB3i3qCOBH4/BUHtKtu96LcmMzjMLz94/Nfot/T5fm19gjp3HWIlh7jqPNeV4nut173+G9r4j/ANKldoVKJdOwVQjBdDLgu7g4fqqy6q6LzRfOGnKuiIDnGPLc944hUwWkOIIwe5PSLQmC59LjR4+Y0P0Xf7o5szmVLOD2g/JYREWgKLREREX0wgPG8MjqF3rpO62Ov0Ta3abMTbUynZHAyM5DAABunqCDzzxXBLeatjYNq2psu0aGyT1hZbbnvRuid7Pa7p3HDuOeGeoK1Ta60G4Ue806x5OOv9+pT+z1e2lqN1w0dpnqXYEVQWtGXL1x1nDOVHe1e3qv1ZVgDmuIvp8rpQcpI2vx1Xsoq/1pBn6hUTNVjkV+1LW4c/B+qVYfSZCrDlvH1nPitTd9Q0FltFTdbnUtgpKdhklld9UD8T3BeN9bw4HiVR/ykrjcGaMtNNBUBtHPVO7dgJDnua3Lc9N0cT71L2SztrayOnccA8fDVYVxrfVad8oGSAqg2obSLltE1ZJVyPkhtcDi2joyeEbftEdXnmT5dFBCnMJ0XoKmpo6aJsMLcNGgC5LPO+eQySHJKwizhYV9WkXRuyefc2XUTM/wkp/rLnJX3szm3NnNI0H68n9pa5tQzfowO0fVTuz7sVJPYpVrWpLtnt4a0/7q/KpbZ/oSTUtaLhcGmK1xHj0M5H1W+HefJXNWw09xts9BVFxhnZuSBpwS09F9wtpqSkjp6KFkEMTQ1kbBwaAtZobg6ipXwxe848eoLYKuhbVVDZJPdaOHWtpHJDTUbWQsjhhhZuhrQA1jRw8gqT2k7R5b5I+x2aYttrDiWVvOoI/uj71vtqlxv8On4oqLEdulJZVPjJ3yejXdzT9/I+NLFTWz9ojIFXL7TuXZ+6ib1cngmmj0HP8AnUsHkpTs4dubVLK7uqPyKixUk2fnd2l2d3/H/IrZqwZp5O4+S1+l/wB5nePNdTOqfXJJXPO2aZ0u0re3j/ssfXxcrwkqOJAVN65sk+pdsENrpp4oZJaRpD5c7oxvHjgErQtmGtiqnPdoA0rcb9l9OGt45CrNkssTw6OR7HDkWnBXRuyfUVwvGz9z7nO+eWmqDTtlecue0NBGT1IzjKrmHY7cfS2sqr1RNi+s6Jr3H4ED8VadgtlHpqwx2ihz2LDvF7vae483FSm0dbS1NOIoyHOz8PFYFko6mCYvkGG4W7vLYa/TtfS1DvopKaRru7BaVzRoiwf6R6zpaCQE07fpZ8fYbzHnwHmrZ2k6rhs+mZrXDM11bWRmMRg8WMPNx7uHL3qL7G42MqrrVkeuGMjb4ZJJ/JW7QyWitss3DPDyyrlyMdTXRRdXFXM2aOKJsMbRGxow1reAA7lWe0zaFVWmR+nrLUGOpc0GoqG+1GDxDWnoSOJPip0Z2ty6Y4aFzLeK2S4X6srpXZdNM5/xPJY2ztuZPM6WUZ3fMq/e618EQjjOCfJeWWSSaQySPL3uOXOcckn3r5aS128CQRyI5r5WRyW/4WmZ1yre2Z7RKx9bHpy91DpmyerS1Ehy4O6MJ6g9Mq2W1G67Ochcm08z6eqjqGEh8bg9pB6g5XTFPWOqaKGpfwMkbZMe8A/mtF2jtscUjZoxje4963Cx1r5WOjec7vkqU2lWCKy6yfLSsDKWsBnjaOTTn1gPDP4q2dg7zBs8rHAY3608e/DR+qie1psdRpuiqABvw1Bbnwc3/opRsbf2Wy9p5b1XKR8Gq5c53T2ZpfxyAfBWqGEQ3RwbwwSrQ9I9bOVQG2bR7aG8nU9sixS1bv3Sxo4Ryn63gHfjnvVu3G9U1tpHVNXIGRNcGuf0GTjP3hYuMFLX2qot9dE2enqGFj2HqD1Hj1B9y1yz1ElumbOB7J0Pb/6U3cadlbEYuY4LkzkVOdmekRqDUAr66LNuo3BzweUr+YZ+Z8PetXcNGXSk14NNxxOfJK/MMhGA+M/X9wGc92Cr1slBSWHT9PaaP2Yh6ziMF7jzcfeVvN5ughpwIT7Txp3da1O1W4yTEyjRvHvUkFQAOHAeC1uoZu00ldGHiDRzD+oV4KS8U1bU1cNO/fNLIIpHDlvYzge5frVStkoJ43esHRuBHfwWhx0zo5m7w1yCtwklDonBvUVy2iy4YeQsLri5qRhEREXxERERZHDiru0BdhcdGQxOfvTUp7J4645tPw4eSpHKl+zu9i16oFLM8Np6sdm4k8A76p+P4lRd3pfWKcgcRqFvXo6votF6je84Y/2XePA+Bwu3dj9/FVp35ulkzLRu3QD9g8W/mPJdL6brxWWOMF2Xxeo7y5LhXRF8dYNXwVD3FtPKexm7g0nn5HB+K640beGU9UwPkHZSgNcc8PArzRtraiyUyNHHXx5rpu39l6OUysGh1H1X463tYo726cN+iqgXeG9ycPz81Q+rrCJqestJ4lwzEfvaV1dqe0C8WCSGNuZ4/pIv4w6efL4KgdUUD5aUVbI3dtEd14xx3f8Aoun/ANPe24tN1bSTuwyXDTnk4e6fHgvGnpCsroZvWYhqDvD6j6rlmogfTzFuN1zDhw6gqn9WWz5t1JM1jcQzHtY/cenkV0lraydhcDXRs+hqPax9V/8A15/FVLrG0G4WZ5Y0mppvXZw4uHUf57l7b27tYudvFTEMubr9wty2NuzbvafV8+3HqO48R4KqlhfRbg45L5XACpJERERZBwtxpWc02t7TUCn9ILKyJ3YgEl/rjhwWmVz/ACctNRXfXldeKiMOZbKcPjyOAle7dB94G8fJYF0qmUlJJM/gAsuggdPUMjbxJXS07yXEtBAJ6815i7BXtlZgEDovI+MnouBtIK65ggL8zM5ZFSW8QeK+THhfnuEOVwAFfNV+hnzxVZbcaGluOy2Wqmc5stFM2WIjqXeqQfI/crHeDggKrNuF7tVLs8ks76lpuNVMzcgacuDWnJc4dByU5s9G83CIxjgflzUZeCwUcm+eS5oXqFur3Wk3QUkpohL2Bn3fUD8Z3c9+OKlWldmOpdUQQV8MDKa2yuIFXM4YIBwd1vM/h4q1todvsWmdgktgpmQxOD4WxEgB87w8Fzz3uIBJ8F1SpvEUU7KaM7z3HBxyHatAp7XJJC+d43WgZHaudcLC+j3r5UuotFdmz2YN0BStB5Pf+KpNW5oFzm6KhB5GV+PuULfm71NjtCmLIcVHgpHqGqmj0rcKiCR0ckcJc1zTggjqF4tIayiv1pEdQQy4Qj6VvR4+2FjUEhOlrg08jA4Y8lTNvuFTbLjFW0khZLGcjuPeD4KKt9tZVUrmnjnQ+Ckq6vdTVDSOBGoXQVU2KtppKWpjbLFI0sexw4EFUrq7TMunrriMukopTmGQ9P2T4hWhZb9T3yztrKYbrh6skeclju5fVwoaa6UMlHXDeikHHHNp7x4hWaCokoJSx/DmPqr1bTsrYg9nHkVRfJSDQzt3aFand035FeG92eos10fSzesw8Y5AOD2969ejju66tp7pfyK2yZwkp3ObqCD5LV4WFk7Wu4gjzXQUlSQ5VtebxTWrbfSXCteWQimbG54Gd3eDhk+Cmj58uJBVR7RXl2sA4nP7nZ+JWoWOmDpnMPAtIW03eYtha8ciFeDpmFu81wc0jIcDkHxUZ1lUakbp59VYZwwxZMrWsBeW97T3hRHQOrpHxssFwlzu/wCzSOPT7Gfw+Cn7p8erkYWM+kdb6gbwyB18wshlQ2tg9k4z8iufJ556mpfPUyvlmecue9xJJ8SrG2RVrIau50jyN98bJG+RIP4harXGl20VQ6722EileczRt5ROPUfsn7io/pq8OsepKe4YJjB3ZWjqw8/18lt0+7X0bhHzC1iLeoqoGTkfkugXyh7t2QZYeBBXO98oX27UVbRPBHZzOAOOYzkH4EK+G1cc8DJ4Xh8UgDmvHEEHkojrPS3z4xtbQ7ra5g3S08BK3uz3rXrJUCllLJNAfMKcu9OaiIPZqQqkQL0VVDWUU7oaumlhe04Ie0jCxT0dVVzNipoJJXuOA1jScrc94YznRanunOMar6oqWStuEFJE0ufK8MAHiV0JE8Q00cLSS2NoYPcBhQPSGk32eYXK5Nb6WR9HHz7LI5nx/BS4zbuS4hrRxJJ5LUb1UtqXiNmoHmtqtFM6BhfJoT5KKbUathstDSteN6SYvLc8cAYz96lezLep9mNJx9uWV49xOPyVQatvTbzqGSSFxNNF9HF4jqfMq2tFP7HZxa255xuJ/puX25UxhtrIjxyPqrdDOJa98g4YXp17MHbObrxyezb/AGgtVs41dLd7I20Vkm9V0bcNcTxkj6H3jl8E1tOX6JuDQeBjH9oKoLTdKmz3mC40jy2WJ2fAjqD4FLfbm1VvdGeOSR34X2urXU1aH8saroqoex9YyoexhmjaWNkLfWa0kEjPjgfBRvWGpRp+xOkjeDWT5ZC3PI9XH3L7hvdHVWFt5FQ1sBj7R2T7GObT49FTuob3Pfb3JWTE7g9WJh+o3oFYtdrdLN+L7rP5hXrjcGxRfhnV38yrE2YVT/mCvc95c99TvEk8Sd3mpu6f6M8enJV7s4O7p+pPfN+SmRkcRgdeCt3OMGsce0K7b3f6VvcqCqAW1UrTzDiPvX5r03FpZd6pjhgiV4I8yvMt3acgLTX+8UREVSpRERERfTHFkjXtOCDkHuXyg5ovoONQr40dfmX/AE3HI54NVDiOdvUno7zXS2ynVwuFpFrq5c1dKABk8Xx9D5ciuD9K6gm09fmVQy6B/qTR59pv6hdBWK+TUFdSXq0zB2AHscOT2nmD4HkuZbW2AStc0DQ6jsK9L7JXiPauzepzu/1EQ+I5Hx4HtXfumbw2520QvdmeIAH9pvQqIa/sRo6k3enZmmnOJmgey4/kfxUR0LrKK4UVNdrfIAeToyeLD1aVdME1Bf7I5r2tlhmaWSRnjjvC8+TRzWis6QDAzr2fzkuObZ7L77XwvGOrsPUuT9RWaOSKailBMEozG7Hsn9QVSF/tNRRVb2yNIkiPHhwcO8LrLWmlJbFXPp6gOko5TvU84H3HxCqHUdhNyhPqhtRGPUcfrDuK/Q30NekuDaW3Chq3/jNGD/yHJw7eteZ6aeq2Uuu+Bhuf4O4rknV1k9ArRXUzP3NMc4A9h3Ue7uUXV76gsrWiannpyaeT1ZGHmw/56qn77Y57LXmJ+Xwu4xyjk4fr4K3tls0+3TmoiH4bvkfsV2rpYa2EVtKcsd8j1FahFnHBYWjKwgVp7Ctbs0ltFZQ1mPm+7btLM8nHZuz6j/InB8CqsX0wkOyDg9Fi1tJHVwPgl4OGFfpah1PK2VnEL+hc8Ja4jC8b41+2magXjZ5YrowucKmghly7mcsHNeqSAY48V53k/BkdEfykj4LscbukYHjmMrUuj4cl8CIE8Vs3QcPyX4mHPIYwq2yZ4L6Wqotsuu6/Rlmp6C0xOZW17XhtWRwgaOB3f2+PDu5rl6aqqKuqdUVM0k0zzl0kji5zj4k81enyitQ2euFpstDVQVNXTSSSzmF4d2eQGhrscjzOFVezyGhn2p2GC5U3pNK+tjbJERkOyeGfDOF2bZqFlJaxMWYcQSes4zj5cFzW+SuqK8xb3s5AHUMrqHQkEjdllhZUQGGRtFGCxzcEcFRm3W9srddxWWmfmG3RYf8Ayr8F3wG6PeCum9T1tJpzTdfepw0w0cLpSDyJHIeZwFw1c6+oul3qrjVvL56mV0sjj1c45KhNkIjV1Ute4YGTjvP2UptHMKenjpAcnn3BeUrCZRdEWlIrb0LvHRMGBn6R4+9VLjxXsp7tcqSAQ0tfUQxjiGseQFhV9IaqPowcarNoaoU0m+RlXFfonf6L15PB3YOwD14KkV7pL1dp43Ry3Gpe1wwQ6QnI7l4eqpt1G6lYWuOcqqvrG1Tw5oxhbSxXuosl0FRES6N3qyx5xvN/XuVw0tRT1tBHWU8okhkALXD8D4qiuS9VPc7hSRdlTVs0TM53WPIHwVuvtrarDmnDlcobiabLXDIVxXezU97tL6SWEZ9qOXHFju8fmFXFloKq1bRaOkq4y2RkvDucMHBHgtX8/wB6xgXSq/5hX4PuVfLUx1ElZM6WP2Hl3FvuK+UlDLAx0bnZBHwX2qrYpntkDcEfNXs7iB49VVW0Ju5q4Dn9Az8StL8/XnGDdKr/AJhXkqaqprJe2qpnyyYxvPOThWqC1upZN8uyrldcm1Me4G4X5se+ORr2OLXNOQQcEFW3pXUjL1aSyoeBXQgB4+2OjlUXev1p6mopJe2ppnwyDhvMdgrNrqNtUzdPHkVh0VY6lfvDhzV7Sx9rTOikaDG8brmuHAjuKqjVumnWO4drT5fRSn1HfYP2StWb9eSMG6VRH8oV+dRdLjVQGGorZ5Yzza9xIKw6C3S0r87+R1LLrbhFUtxunPWpDpbWMtoDKCuLpKHe4EcXRZ547x4Kyaetpa6Fs9JUMmjI4OYcqiV6KSurKGXtaOplhd3sdhVVtpjnO+3Rypo7q+AbjtQrylYyeEslYyRv2XgOHwK+Y444WhkUccbc5wxoaPuVVw661DFHuGoil65kjBKzNrnUEzCBNDHnqyMAhRv9mqPd3hjvUkbxT8d05VpVFVDSxunqZmQxtGS55wAq51RrD5wjfQW1zm054SS8jJ4DuCi9Zca24SmSsqpZnftuyvN0UjR2lkDg95yVHVl1fMCxgwEPNXjpnLdDWyMc+xzj3klUd0XvivV2hhZFFcaljGDda1ryMDuV+40Rq2BgOMHKsUFWKV5cRlWxq5hOiLg45BEY4fzgqZ6r2zXi61MDoZ7hUSxvGHNe8kFeFVW+kNLHuOOV8r6oVMgeBheplyrY7VJbWTuFNI8SOj7yP8j4Ly54YRFnAAcFhEk8VZ+zwf8AdqbDSfpj+Cl4G7xd71RlNc7jRxGOlrZ4WE5LY3kAlfr8+3k87nVH/wBQqCqrO+aV0gdjPYpymu7IYhGWk4WL60s1NcAf/ESH+sVr19ySSTSullc573HJc45JXwptrd1oChHnLiQiIiqVKIiIiIiIi+ge9TvQWr22udtpuT/3HI71JD/BOP5FQJZCsVNOyojMb+BUrZbzU2erZWUrsOb8COYPYV1tpPVNXpi7tqYSZaWTAmhB4PHePEdCunNFa1hfDFcaCYT0soG83OM+BHRwX889Ea6FKyOz3iU9hnEM7v4PwPh+CvDSura7TNe2Wmd21JLgyw73B47x3HxXHtq9lOlyCPa5HkR916OZLb9tKD1qlwJQPabz/nUV3bVUto1Zp51PM0TU0o5j2o3d47iFQWudI3DTVV6PNGZKaQ/QVTRwcO49zvBSXQ2u6eqpGVtqqhIx2BJE48Qe5w6FWrHPZ9UWiSkqomTMeMSU8nMeP/ULlVqudw2Vr2zwEjdOe0H+eBXnrbjYMVLXMe3DhwP0P3XG+odORVkLnsaxtVjmfZkHcVTWo9MtayamrYHup8+s0+3Ee8fquytb7LrhZTLc7S19dQAFxYBmWEeI+sPEKo7paKG703Z1DNybk14HEfqPBe7/AEd+l+1bW0jaG5ECUjHYe7qPYfBcJorhcdj6swztJiPEHgR9e9caXuw1FonJOZadx9SYDgff3HwWoXReqtFzUjZGGnZJA/gW4yx3u7j/AJCqG96Onpi+ot7S+McXQH22e7vCydo9jJqImekG/H2cQup0NbS3SL1ihdkcxzH3USC+hzyjmlpIIII4ceiwtF4K6uz/AJPGtaDUmyaDTLn7t1srTE+M83wlx3HjwGd0+I8QrRNNjJIXG3ydLpWW/wCUBZ6WmnijiuG9STtlOA9hGcD9rLWkeIC7impfpN3C4Ntrbxb7kTHwkG948/muqbNVhqqMB/Fun2+S0BpyTvAKG7StSWjSWgLhW3CqjjllgkipoN7Ek0jmkANHPhnJPQeSlerNTWDRdmlumobhHSQMHqsJBklP2WN5uK4h2mbQq7aJq43KeIU1HADFSUoOezZnOSerjzJV/ZKwS3KcTSAiJuues9Q+qpv12jooixpy88urtKhZcSefiv2oqypt9xgrqKZ0NRA8SRyM5tcDkELzou4EAjBXLgSDkKc6s2sa11laxbbvcmCiOC+np4hG2Rw4hzscSfPCg5WEVqCnip27kLQ0dgwrk08kzt6RxJ7UWRyWFkK8rSyAeibjvslbmg1VfrY3FFXmIDp2bCB8QVvafa5tBpYxHBfy1o5D0aE/3FaeZB7rR8f2KusEZ94lRKC23CpGaegqZR3xxud+AXvi0lqmcZg0zeJB+xRSO/Bql0G3bafTgBmogcfapoj/AHVtIflJbXIW7rdQw47jSR/osGWS4D/bjYe9x/8AFZDWUv5nn4fuqrfSyQVzqWrjfTyMfuSNlaWmM5wcg8QR3KUVejbZSWeO5f6W26SnlL2xObDL9IW8wOHu5rRX29XDUepK6+3acTV1dM6onkDQ0Oe45JwOAXprK+CXQ9uoGzb00U8r3R/ZB5HzWW/pTuHOOv4fdWo+j9rIz1fFfEFhfNoqq1CKmMMp6llMYMHecXNznPLC/O42V9vstruDqhkja+N72saDmPdcW4PwW4suo/mbQtXT0lTGytfVte2OSMPBbu4JwRhfhqa9svNos7nzslqo43idrGboYS/hwxjl3Khr5S8gjTPyx91WWRdHkHXHzyvZW6Kt1tgh9P1bb6eaWBs4hdDKSGuGRxAIUOPtYVjXG+QVlJHFSant9PCaVsL4paYvePVwQHbpVcnmRz8V9pXvc38Tj/OwL5VMY1w3OCkcej66fQH+lNPNHJC2V0ckDQd9jR9buIXiutjktbLY587JPT6VtS0NBG4HOLcHx4LfWvVYs2j7ZHSTskqIqqR09K4HD4nAgh3Qgrx6suluuN0tsltdimgpmRhnHMeHuO6fdlUMfN0uHDTJVb44ej3mnXAXovGjLdZe2hqtWW/0uOIS+jiGXedluQ0HGMn3rTQ2N9RpGpvkNTG70edsUlPg7wDhwdnljOApfqa/09zjqW0epaAUskIb2DqUmQkN4gP3ep8VH9H3ahoKuso7sR6BWQ7kgIzhzSC0/iqWSzdDvnVw5Y+PIKp8UXShnAHmv3rNA3WjuFio3SMe+7sa5hDSBETjId4gHJUcuVGygu9TRMqGVAgkdH2rAQ1+DjIz0U7pddQyxXCrr5GuqYJ5Z7eC0kgvbu8Pg3n4qvCS5xcckk5VymdM7PS8v55YVuobEAOj5rYWKzzX2/QWyGRkRkJLpX+zG0DJcfAALF8tE1jv9Ta53tkdC71ZGezI0jLXDwIIK3GmbrarHZrhWVLRU1dQPRmU7XFjmxn2nZxwzy+Kanutrvlrt9ZTDsKuBnor6dzi9xYPYdvHn/18F96STpsY9nh4/wA0To4+hzn2vovRUaKt1DRU01x1bb6aSop21DYXwyl2COHIEeC1untOQ3qkr6upu1NbqaiEZklnY5w9clo9kE88fFbK96sk7KkpbbNTzQtpGRvL4Q4tdjBGXDI8l5NNXyms9ivLJY6aeSdsIZT1DC5kmH5OR4c/JWt6foifzZHwz3dSuFsHSho4Y+n3Xn1Dpl1igpKuC40tyoKtpMNVT7wa4tOC0hwBBC/G82Ce0XGjo+1bUyVVPFUMEbT/AAgyG+9bDVl4pbvS22SimjigZEQaCNm6Kd/1scMEHvXxfL3BLqK13Cle2cUlPTtI5cWdFcifKQ3e7c/RW5GRAu3eGn7r11OiKaha6muGqbVS3NsXaOo3lx3DjO6XgboOMfFR60Wue83ymtlM5rZJ37oc7k0dXHwAUiutPpm73SovR1D6OycGV1IYXPmbIR7I6EZ655LzaUuttsNPXXOpImqnM9HhpwS1xa4Yc7PThw+KpbJJ0ROpd3Y1VTomdIBoG9+dFrdQ2KfT1/ltk8rJt0BzJowQ2RpGQRn/ADzX5UtgvldSel0NmuFTBkjtYaZ72ZHMZAwtzqK72y96foZqdvotVR/uZsDnF7nRcwd7HHB/Erf6S27bSNEaUh05p68Q09vhc98cT6Zjy0uO87iRnmV8fJVdCDE0F/PJwPllUmOESkOd7PZqoLNZLzACZ7RXRd+/A9v4heJ0T2khzCCOhCtmb5Sm12f29RQj3UcX+Famp26bTqtxM2owc88UkH+BUwyVp/3I2+Dj/wCKOZTflcfh+6rvdOOIWMKU1+0PV9yDhWXUSB3MCnib+DAo7U1VRVz9rUydo/GN4gDh5LNaXH3h81jODc+yV50TqirVKIiIiIiIiLIWERF9D4KaaS13UWUsobhvT0OcA83Re7vHgoSsjkrM9PHOwxyDIUnabvV2mobVUb91w+fYesLqDTOp56KSO9WC4Za7hvN4tePsuH5K/NFbVKK5yRRTz+gXIcmF2GvP7LvyK/nxZdQXSw1gnt9SWA+1GeLHjxCtXT+0G03YshrHeg1RxwefUcfB3Tz+K5ztDsayoaXYyOscR913a1bZWfaiMQXLEM/DP5T4/Q+BX9ILRrSGaNkVzwx3LtmjgfeOi1OrdlendWsdcLZK231rhvCWAAxyn9po6+I4+9csaa2nXuxNjgqXC40YxhsrvXA/Zd3e/KufSe1S2Vr2m2XQ01QedJUHdJ8jwPkuPVezVdapenoyRjq4eIWt7V+jJs8Ra9gew8+I8DxChuqtHal0qXx3i0Gai4j0uMdpE4eJ6e5yq++6HortJ2tqmEMxGRC7l7gen4LtCg15RVURprxSdmHcHPaN5jve08fxWpvOyvZ/qyI1Fley21R4iSgI3c+MfL4YPiut7Gf1AXiwtbS3ZnSRDTXXTv4/HPgvO109GNxs83rNpeWkcj9+B+S/nlqbQZge5t2o5IJh7NQwc/Pk78VXlfpivpN58AFTEOrB6w94X9ANS7EdbUZkFGykv9HxywcJCPFjuZ9xKp7UOzGlpJZPTrTcLFUjj68R3Pv4fAruNFtvsVtYA+KYQSnr018vJWI9pqyk/DvVMQf1NHnyXJcUtTQ1rJ4ZJaeohcHMewljmOByCDzBBW2u+s9W357XXrU12ryw5Z6RVPeGnvAJ4K371s0qJ2BwFFcGdHNduvx9xUGuWzaeCQ7tLX03X1ozI0eY6LIqNj5HnpaRzJgOBBBKn6W90VQ3/TzjXkTun4FQSprautm7Wsq56iT7czy8/Erz9VIptHXOMEslgeM8i7dP3rxSadvMZP7he4DjvMIIURLZ6yD2XwuHh9ln4LtRr81qUWwFju3/AICb4LPzJdi4N9Amz4BY/qk/6D8CqS0jiFrkUssuzfW+oZmQ2bTVwq5HnDWQwudn4DCsi0fJZ19JCKzVtdaNJUWMufcqgGbyhZlxWBWVUNEM1Lw3sJ1+HH5K7T08tS7cgaXHsGVReCt3p/SmodTTPZZLTUVYj4yytG7FEME5fIcNYMA8yFdFdavk/wCzJpEvp+vbzHxb6U70ekaf5Jhy4fxnYPcq41ptW1LrCmFr3oLVY4uENntsYp6aMZyBuNwD5rBguElWf9PGQ39TtB4DifkpCa2ikH+rcA79I1PjyHn2LRXGhtFkElK+riuteMtLqZ5NNF04P5yH3Yb4nktCe5ZK+TzUm0EDUqLe4E5AwFlM5WEVSpWU6c1hF9RFlYRfEWfNYRERZTzWERFnPiiwiIs9eaLCIiynmsIiLKZWERFnKLCIiz0RYREWU4YWERFlY4IiIsrCIiIiIiIiIiIiIiIiIiIiIiJ1WQcHIOCsIiKQ2XWV7smI6eq7WDPGGb1mn9PJWDZ9p1oqd1txifQzfabl7Pfw4hU6sqPqrXT1Pvt16wtvse3N3s2GwS5Z+l2o/bwIXWOnto14poW/NV7jrabpE9wlH6jyU7tm18BzBX0E0EgP77TPz9xwR8SuGYKmoppRLTyviePrMdgqQ0OvtTULd3081DejZ2h+PitTr9h6ec5bjyPyW/U3pNtlWMXKk3XdbD9Dj6r+g1n23sYGtj1HHI3l2dazBPmeKm9NtYpK2Nsdwt9FVsI49nKHD+icr+cFHtXrGuxW2qCRuOcTy0/fkLbUu1i1tdl9urIPGJ4d+i0+r9GLXHLW47v2wr0lVsbX69Luf5NI8l33WDZHeXl9z0bHC48TJFCGE+bDla6q0fsZrCfRam8W7IwRC+Qj+sCuJWbYrXH7E95A9/8A71+7dt9K0YFffGjH1QD/AHlRBsVd6Ug0tRIzHU4/cqBqtjdhqn2n1Mfw/wDyuv5tl+ySQBh1JenDqHwsfn/+a8U2y3YkCTU3S4u7x6PGzPmY1yDUbbWuJDG3SfPWSfc/DK0ddtguMrsU1uYRjnUTPkP4hbDBZ9qcYNylA/zUNJsnsJTHPTk/4gn7LsqTTfyddPPLqminrT0bUVLGZ/5eCtXcNpmx3TbO2tOg7K10Yy2eri7Qt8Q6TH4FcU120PVFY3cbXClbnlTsDPvUdqa2qrJe0qqiSZ32nuJUpFsrXzf99XSvHVvux5rGNTstQnNFRGR3W84HwGT5LqzV3yt7i6lkobFK2Bh4dnRMEbMd2QAD8CqA1RtR1Zqioe6ruEsbH+01ryS73knKhfvWCp+37PUNDrFHk9Z1PzUfW7UVlQ0xRYiZ1MG78TxPiV9Pe6R289xcTzJXzlYRTa10knUrOVg80RF8RERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERMoiIs5WMoiImVnKwiIs5TKwiIiIiIs5WMoiIs5WEREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREX/9k=" alt="ANYAME KROM logo" onerror="this.outerHTML='<span class=\'brand-fallback\'><strong>ANYAME KROM</strong><span>The New Africa</span></span>'">
+        <p style="margin-top:14px">A cultural, spiritual, educational and knowledge movement rooted in African identity and reaching toward the future.</p>
+        <form class="footnewsletter" id="newsletterForm">
+          <input name="email" type="email" required placeholder="Your email address" aria-label="Email address">
+          <button type="submit">JOIN</button>
+        </form>
+        <p class="formnote" style="color:#c6b49a;font-size:11px;margin-top:8px">Receive dispatches, broadcast alerts and archive updates.</p>
+      </div>
+      <div>
+        <h4>EXPLORE</h4>
+        <p><a href="#about">About Us</a><br><a href="#culture">Culture & Heritage</a><br><a href="#community">Community</a><br><a href="#contact">Contact</a></p>
+      </div>
+      <div>
+        <h4>MEDIA</h4>
+        <p><a href="#media">Media Hub</a><br><a href="#livetv">Live TV</a><br><a href="#radio">Radio</a><br><a href="#programs">Programs & Shows</a></p>
+      </div>
+      <div>
+        <h4>CONNECT</h4>
+        <p><a href="#contact">General inquiries</a><br><a href="#contact">Partnerships</a><br><a href="#community">Join the community</a><br><a href="#culture">Contribute to archive</a></p>
+      </div>
+    </div>
+    <div class="footerbottom">
+      <span>© <span id="year"></span> ANYAME KROM — THE NEW AFRICA</span>
+      <span>HERITAGE × IDENTITY × CULTURE × FUTURE</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Reader / Proposal Modal -->
+<div class="modalbackdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modalbox">
+    <button class="modalclose" id="modalClose" aria-label="Close modal">×</button>
+    <p class="kicker" id="modalKicker"></p>
+    <h2 id="modalTitle"></h2>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script>
+const app = document.querySelector('#app');
+
+/* Rich Data Stores */
+const cultureData = [
+  {
+    id: 'civ',
+    cat: 'history',
+    title: 'African Civilizations',
+    region: 'Continental · Antiquity to Modern Era',
+    summary: 'Explore kingdoms, empires, societies, trade networks, sciences and historic achievements across Africa.',
+    article: [
+      'Long before colonial borders were drawn, Africa was home to complex urban civilizations, centers of scholarship, and transcontinental trade networks. From Kemet (Ancient Egypt) and Kush along the Nile to the Aksumite Empire in the Horn of Africa, African societies pioneered architecture, astronomy, metallurgy, and written legal systems.',
+      'In West Africa, the Ghana, Mali, and Songhai empires built renowned centers of learning in Timbuktu, Gao, and Djenné, housing hundreds of thousands of manuscripts covering mathematics, medicine, ethics, and governance. Meanwhile, Great Zimbabwe, the Kingdom of Kongo, the Ashanti Confederation, and the Benin Kingdom demonstrated sophisticated statecraft, bronze casting, and diplomatic traditions.'
+    ]
+  },
+  {
+    id: 'ancestry',
+    cat: 'history',
+    title: 'History & Ancestry',
+    region: 'Pan-African · Lineage & Memory',
+    summary: 'Trace historical memory, migration, oral genealogies, and the stories that connect communities.',
+    article: [
+      'In many African traditions, history is carried not merely in archives of paper, but in lineage names, praise poetry, drum rhythms, and oral custodianship. Knowing where one comes from establishes grounding, accountability, and belonging.',
+      'Tracing ancestry also illuminates how peoples migrated, adapted, and shared knowledge across ecological zones—creating interconnected linguistic and cultural families across West, Central, East, North, and Southern Africa.'
+    ]
+  },
+  {
+    id: 'language',
+    cat: 'language',
+    title: 'Indigenous Languages',
+    region: 'Linguistic Heritage · Oral & Written',
+    summary: 'Discover language, oral traditions, naming ceremonies, proverbs and the importance of linguistic continuity.',
+    article: [
+      'Africa is home to over 2,000 living languages—nearly a third of the world’s linguistic diversity. Each language carries an irreplaceable worldview, encoding ecological knowledge, social ethics, and spiritual philosophy within its idioms and proverbs.',
+      'From Akan, Yoruba, Igbo, Wolof, and Swahili to Amharic, Zulu, Lingala, and Hausa, preserving and teaching indigenous languages ensures that future generations can think, create, and reason through their own ancestral frameworks.'
+    ]
+  },
+  {
+    id: 'symbols',
+    cat: 'symbols',
+    title: 'Symbols & Art',
+    region: 'Visual Philosophy · Sacred Geometry',
+    summary: 'Explore visual language, artistic expression, Adinkra, Nsibidi, and their cultural contexts.',
+    article: [
+      'African visual traditions communicate profound philosophical truths through form, pattern, and symbolism. Among the Akan people of Ghana and Côte d’Ivoire, Adinkra symbols encapsulate aphorisms about wisdom (Mate Masie), adaptability (Nkyinkyim), and learning from the past (Sankofa).',
+      'Across the continent, Nsibidi ideographs in southeastern Nigeria, geometric Ndebele mural art in Southern Africa, Ethiopian illuminated manuscripts, and Dogon cosmological carvings demonstrate that art is inseparable from memory and meaning.'
+    ]
+  },
+  {
+    id: 'wisdom',
+    cat: 'wisdom',
+    title: 'African Philosophy',
+    region: 'Ethics · Cosmology · Thought',
+    summary: 'Explore ideas, ethics, cosmologies, values and philosophies from African intellectual traditions.',
+    article: [
+      'African philosophical traditions center relational existence, harmony, and moral responsibility. Concepts such as Ubuntu ("I am because we are") in Southern Africa, Ma’at (truth, balance, cosmic order) in Kemet, and Omoluabi (character and integrity) in Yoruba thought offer timeless frameworks for leadership and community life.',
+      'Rather than separating the spiritual, ecological, and social spheres, indigenous African wisdom treats human flourishing as deeply connected to community wellbeing and respect for the natural world.'
+    ]
+  },
+  {
+    id: 'music',
+    cat: 'living',
+    title: 'Music & Dance',
+    region: 'Rhythm · Storytelling · Ceremony',
+    summary: 'Discover rhythms, instruments, talking drums, dance, and living cultural expression.',
+    article: [
+      'In African heritage, rhythm is a language. Instruments like the djembe, kora, mbira, balafon, and fontomfrom talking drums carry historical narratives, mark life transitions, and unite communities in collective movement.',
+      'Today, contemporary African sounds—from Highlife, Afrobeat, and Soukous to Amapiano and Wassoulou—continue this lineage, blending ancestral rhythmic structures with modern global expression.'
+    ]
+  },
+  {
+    id: 'clothing',
+    cat: 'living',
+    title: 'Traditional Clothing',
+    region: 'Textiles · Identity · Craft',
+    summary: 'Explore woven textiles, dress, design, adornment and their social meanings across communities.',
+    article: [
+      'Textiles across Africa tell stories of status, occasion, region, and artistry. Hand-woven Kente cloth, Malian Bogolanfini (mud cloth), Yoruba Aso-Oke, Ethiopian Habesha kemis, and Maasai Shuka showcase centuries of mastery in weaving, dyeing, and symbolic patterning.',
+      'Wearing traditional attire is both an aesthetic celebration and a living affirmation of identity, craftsmanship, and continuity.'
+    ]
+  },
+  {
+    id: 'practices',
+    cat: 'living',
+    title: 'Cultural Practices',
+    region: 'Rites · Festivals · Hospitality',
+    summary: 'Learn about ceremonies, harvest festivals, naming rites, and heritage in everyday life.',
+    article: [
+      'Seasonal festivals, naming ceremonies, rites of passage, and communal hospitality reinforce social bonds across generations. Events like Homowo, Osun-Osogbo, Timkat, and Kwaanza celebrate gratitude, renewal, and collective memory.',
+      'Understanding the context and purpose behind these practices helps communities carry forward their spirit meaningfully in modern urban and global settings.'
+    ]
+  },
+  {
+    id: 'diaspora',
+    cat: 'history',
+    title: 'Diaspora Heritage',
+    region: 'Global Africa · Resilience & Renewal',
+    summary: 'Explore African heritage as it is carried, transformed and celebrated across the global diaspora.',
+    article: [
+      'Across the Caribbean, the Americas, Europe, and beyond, descendants of Africa preserved rhythms, culinary traditions, spiritual resilience, and liberation movements under extraordinary adversity.',
+      'ANYAME KROM serves as a bridge of reconnection—inviting dialogue, return journeys, educational exchange, and shared creative initiatives between the continent and the global diaspora.'
+    ]
+  }
+];
+
+const programData = [
+  {
+    cat: 'History & Civilizations',
+    title: 'Foundations of Greatness',
+    format: 'Documentary Series · 45 min',
+    host: 'ANYAME KROM Research Desk',
+    summary: 'Deep dives into historic African kingdoms, trade routes, governance systems, and architectural wonders.'
+  },
+  {
+    cat: 'Culture & Traditions',
+    title: 'Living Heritage',
+    format: 'Field Feature · 30 min',
+    host: 'Cultural Custodians & Artisans',
+    summary: 'On-location explorations of festivals, weavers, drummers, potters, and custodians keeping traditions alive.'
+  },
+  {
+    cat: 'Identity & Heritage',
+    title: 'The Sankofa Dialogue',
+    format: 'Roundtable · 60 min',
+    host: 'Pan-African Panel',
+    summary: 'Conversations on belonging, naming, diaspora reconnection, and self-definition in the 21st century.'
+  },
+  {
+    cat: 'Indigenous Knowledge',
+    title: 'Voices of the Elders',
+    format: 'Oral History · 40 min',
+    host: 'Wisdom Keepers',
+    summary: 'Recorded reflections with elders, philosophers, and traditional knowledge practitioners across regions.'
+  },
+  {
+    cat: 'Interviews',
+    title: 'Builders of the New Africa',
+    format: 'One-on-One · 35 min',
+    host: 'ANYAME KROM Studio',
+    summary: 'Interviews with educators, innovators, writers, and community leaders shaping Africa’s creative and civic future.'
+  },
+  {
+    cat: 'Documentaries',
+    title: 'Sacred Marks & Memory',
+    format: 'Visual Essay · 50 min',
+    host: 'Media Collective',
+    summary: 'Tracing the origins and meanings of African writing systems, symbols, textiles, and sacred geometry.'
+  },
+  {
+    cat: 'Education',
+    title: 'ANYAME KROM Academy',
+    format: 'Masterclass · 30 min',
+    host: 'Guest Scholars',
+    summary: 'Accessible lectures and structured study sessions on African history, languages, and philosophy.'
+  },
+  {
+    cat: 'Community Stories',
+    title: 'Circles Across Borders',
+    format: 'Community Dispatch · 25 min',
+    host: 'Community Contributors',
+    summary: 'Stories, creative projects, and grassroots initiatives submitted by members across the continent and diaspora.'
+  }
+];
+
+const sevenKingdoms = [
+  { num: '01', name: 'Heritage & Memory', desc: 'Preserving historical truth, oral archives, and ancestral continuity.' },
+  { num: '02', name: 'Language & Expression', desc: 'Revitalizing indigenous tongues, literature, proverbs, and storytelling.' },
+  { num: '03', name: 'Wisdom & Philosophy', desc: 'Applying African ethical and spiritual frameworks to modern life.' },
+  { num: '04', name: 'Education & Mastery', desc: 'Building accessible learning spaces for youth, scholars, and lifelong learners.' },
+  { num: '05', name: 'Arts & Sound', desc: 'Celebrating music, visual symbolism, design, film, and craft.' },
+  { num: '06', name: 'Enterprise & Stewardship', desc: 'Fostering ethical collaboration, sustainable livelihoods, and self-reliance.' },
+  { num: '07', name: 'Diaspora & Unity', desc: 'Connecting African peoples across regions and oceans in shared purpose.' }
+];
+
+/* Shared Components */
+function featureCards() {
+  return [
+    `<a class="featurecard" href="#culture" style="background-image:url('https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=900&q=80')"><div class="featuretext"><small>01 / CIVILIZATIONS</small><h3>Before the world knew</h3><p>Kingdoms, empires, knowledge systems and historic achievements across the continent.</p></div></a>`,
+    `<a class="featurecard" href="#culture" style="background-image:url('https://images.unsplash.com/photo-1523824921871-d6f1a15151f1?auto=format&fit=crop&w=900&q=80')"><div class="featuretext"><small>02 / SYMBOLS & WISDOM</small><h3>Meaning in every mark</h3><p>Philosophies, Adinkra symbols, art, proverbs and sacred expressions.</p></div></a>`,
+    `<a class="featurecard" href="#culture" style="background-image:url('https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=900&q=80')"><div class="featuretext"><small>03 / PEOPLE & TRADITIONS</small><h3>Culture lives in us</h3><p>Languages, music, dance, woven textiles and living community traditions.</p></div></a>`
+  ].join('');
+}
+
+function mediaFeature() {
+  return `<div class="media-feature">
+    <a class="broadcast" href="#livetv">
+      <div class="broadcastinner">
+        <small style="color:var(--gold);letter-spacing:2px;font-weight:700">◉ DIGITAL BROADCAST</small>
+        <h2 style="font:400 36px var(--serif);margin:12px 0">ANYAME KROM<br>LIVE TV</h2>
+        <p style="font-size:13px;color:#f4ead6;margin-bottom:16px">Culture · Knowledge · Documentaries · Conversations</p>
+        <span class="btn gold">Enter Broadcast ↗</span>
+      </div>
+    </a>
+    <div class="radio-panel">
+      <div>
+        <p class="kicker">DIGITAL RADIO</p>
+        <h3>ANYAME KROM<br>RADIO</h3>
+        <p>Sound, reflections, oral histories and conversations from the African experience—24/7 cultural frequency.</p>
+      </div>
+      <div>
+        <div class="eq playing" aria-hidden="true">${'<i></i>'.repeat(16)}</div>
+        <a class="btn light" href="#radio">Tune Into Radio ↗</a>
+      </div>
+    </div>
+  </div>`;
+}
+
+function storyCards() {
+  return `<div class="storycards">
+    <article class="story">
+      <div class="storyimg" style="background-image:url('https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=1000&q=80')"></div>
+      <div class="storybody">
+        <div>
+          <small>HERITAGE / HISTORY</small>
+          <h3>Reclaiming the narratives that define us</h3>
+          <p>Our history is not merely behind us. It is the living foundation from which we understand our identity and build forward.</p>
+        </div>
+        <button type="button" class="linkline" data-open-article="civ">Read Essay ↗</button>
+      </div>
+    </article>
+    <article class="story">
+      <div class="storyimg" style="background-image:url('https://images.unsplash.com/photo-1523824921871-d6f1a15151f1?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="storybody">
+        <div>
+          <small>PHILOSOPHY / KNOWLEDGE</small>
+          <h3>The wisdom we carry</h3>
+          <p>Learning from ethical traditions, proverbs, and ancestral philosophies passed through generations.</p>
+        </div>
+        <button type="button" class="linkline" data-open-article="wisdom">Read Essay ↗</button>
+      </div>
+    </article>
+    <article class="story">
+      <div class="storyimg" style="background-image:url('https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="storybody">
+        <div>
+          <small>COMMUNITY / UNITY</small>
+          <h3>One people beyond borders</h3>
+          <p>Reconnecting a people across the African continent and the global diaspora through shared learning and purpose.</p>
+        </div>
+        <button type="button" class="linkline" data-open-article="diaspora">Read Essay ↗</button>
+      </div>
+    </article>
+  </div>`;
+}
+
+function cultureCards() {
+  return cultureData.map((d, i) => `
+    <article class="tile culturecard" data-cat="${d.cat}" data-text="${(d.title + ' ' + d.region + ' ' + d.summary).toLowerCase()}">
+      <div>
+        <small class="kicker">ARCHIVE / ${String(i + 1).padStart(2, '0')} · ${d.cat.toUpperCase()}</small>
+        <h3>${d.title}</h3>
+        <div class="tilemeta"><span class="pill">${d.region}</span></div>
+        <p>${d.summary}</p>
+      </div>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-top:8px">
+        <button type="button" class="linkline" data-open-article="${d.id}">READ ENTRY ↗</button>
+        <a class="linkline" href="#contact" style="border-color:var(--line);color:var(--muted)">CONTRIBUTE ↗</a>
+      </div>
+    </article>
+  `).join('');
+}
+
+function programCards() {
+  return programData.map((d, i) => `
+    <article class="tile programcard" data-category="${d.cat}" data-search="${(d.cat + ' ' + d.title + ' ' + d.format + ' ' + d.summary).toLowerCase()}">
+      <div>
+        <small class="kicker">SERIES / ${String(i + 1).padStart(2, '0')} · ${d.cat.toUpperCase()}</small>
+        <h3>${d.title}</h3>
+        <div class="tilemeta">
+          <span class="pill">${d.format}</span>
+          <span class="pill">${d.host}</span>
+        </div>
+        <p>${d.summary}</p>
+      </div>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-top:8px">
+        <button type="button" class="linkline" data-preview-program="${i}">SERIES BRIEF ↗</button>
+        <a href="#contact" class="linkline" style="border-color:var(--line);color:var(--muted)">PITCH A STORY ↗</a>
+      </div>
+    </article>
+  `).join('');
+}
+
+/* Full Page Templates */
+const pages = {
+  home: `
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <p class="kicker">A CULTURE. A PEOPLE. A FUTURE.</p>
+        <h1>ROOTED IN<br><em>HERITAGE.</em><br>CONNECTED TO<br>THE FUTURE.</h1>
+        <p class="lead">Discover the culture, identity, wisdom, stories and media of ANYAME KROM — a platform celebrating African heritage, knowledge and the power of connection.</p>
+        <div class="hero-actions">
+          <a class="btn gold" href="#about">Explore ANYAME KROM ↗</a>
+          <a class="btn light" href="#media">◉ Explore Media</a>
+        </div>
+      </div>
+      <div class="scrollcue">SCROLL TO DISCOVER</div>
+    </section>
+    <div class="sunstrip">
+      <b>HERITAGE</b><span>✳</span><b>IDENTITY</b><span>✳</span><b>KNOWLEDGE</b><span>✳</span><b>UNITY</b><span>✳</span><b>THE FUTURE</b>
+    </div>
+
+    <section class="section">
+      <div class="wrap split">
+        <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=1200&q=85')">
+          <div class="phototag">OUR ROOTS. OUR IDENTITY. OUR DESTINY.</div>
+        </div>
+        <div>
+          <p class="kicker">01 — OUR IDENTITY</p>
+          <h2 class="headline">A people reconnecting with their <em>origin.</em></h2>
+          <p class="lead">ANYAME KROM is a cultural, spiritual, educational and knowledge movement rooted in African identity. We are building a space to rediscover heritage, preserve wisdom, nurture our people and imagine a future that belongs to us.</p>
+          <p class="lead">We believe the future is strongest when it remembers where it came from. Our work brings heritage into conversation with the present — making culture a living source of learning, creativity and community.</p>
+          <div class="statrow">
+            <div class="stat"><b>7</b><span>Foundational Pillars of Unity</span></div>
+            <div class="stat"><b>9+</b><span>Living Archive Domains</span></div>
+            <div class="stat"><b>24/7</b><span>Digital Broadcast & Radio Vision</span></div>
+          </div>
+          <a class="linkline" href="#about" style="margin-top:22px">READ OUR STORY ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background:#fff4d9">
+      <div class="wrap">
+        <div class="sectionhead">
+          <div>
+            <p class="kicker">02 — CULTURE & HERITAGE</p>
+            <h2 class="headline">The roots that make<br>us <em>who we are.</em></h2>
+          </div>
+          <p class="lead">A living archive of African civilizations, indigenous knowledge, language, philosophy, symbols and cultural memory.</p>
+        </div>
+        <div class="cards3">${featureCards()}</div>
+        <div style="margin-top:28px"><a class="btn dark" href="#culture">Explore the Full Archive ↗</a></div>
+      </div>
+    </section>
+
+    <section class="section darksection">
+      <div class="wrap">
+        <div class="sectionhead">
+          <div>
+            <p class="kicker">03 — ANYAME KROM MEDIA</p>
+            <h2 class="headline">Our stories.<br><em>Our frequencies.</em></h2>
+          </div>
+          <p class="lead">A new voice for the continent and its people. Broadcast, conversation and culture without borders.</p>
+        </div>
+        ${mediaFeature()}
+        <div style="margin-top:26px"><a class="btn gold" href="#media">Enter the Media Hub ↗</a></div>
+      </div>
+    </section>
+
+    <section class="section" style="background:#efe4ca">
+      <div class="wrap">
+        <div class="sectionhead">
+          <div>
+            <p class="kicker">04 — THE JOURNAL</p>
+            <h2 class="headline">Stories worth<br><em>remembering.</em></h2>
+          </div>
+          <p class="lead">Perspectives shaping how we understand our African past, present and possibilities. Click any essay below to read in full.</p>
+        </div>
+        ${storyCards()}
+      </div>
+    </section>
+
+    <section class="section communityband">
+      <div class="wrap split">
+        <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1200&q=85')">
+          <div class="phototag">CONTINENT & DIASPORA</div>
+        </div>
+        <div>
+          <p class="kicker" style="color:var(--gold)">05 — OUR COMMUNITY</p>
+          <h2 class="headline">Seven kingdoms.<br>One <em>people.</em></h2>
+          <p class="lead">ANYAME KROM is more than a platform. It is a gathering of people rediscovering their roots, sharing their gifts, building together and shaping a future grounded in identity and collective purpose.</p>
+          <a class="btn gold" href="#community" style="margin-top:12px">Connect with Community ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap" style="text-align:center">
+        <p class="kicker">06 — BECOME PART OF IT</p>
+        <h2 class="headline">The future is ours<br>to <em>remember</em> and create.</h2>
+        <p class="lead" style="margin:20px auto">Join a growing movement of culture, consciousness, creativity and connection. A people. A heritage. A new horizon.</p>
+        <div class="hero-actions" style="justify-content:center">
+          <a class="btn dark" href="#community">Join ANYAME KROM ↗</a>
+          <a class="btn" href="#culture">Explore Heritage</a>
+        </div>
+      </div>
+    </section>
+  `,
+
+  about: `
+    <section class="pagehero">
+      <div class="wrap">
+        <p class="kicker">ABOUT ANYAME KROM</p>
+        <h1 class="headline">A people reconnecting<br>with their <em>origin.</em></h1>
+        <p class="lead">Rooted in heritage. Guided by knowledge. Building with purpose. ANYAME KROM is a platform and movement for cultural renewal, identity, spiritual inquiry, education, community and collective possibility.</p>
+      </div>
+    </section>
+
+    <section class="pagecontent">
+      <div class="wrap split">
+        <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=1200&q=85')">
+          <div class="phototag">HERITAGE IS A LIVING FOUNDATION</div>
+        </div>
+        <div class="bodycopy">
+          <p class="kicker">WHO WE ARE</p>
+          <h2 class="headline">Culture is not only memory. It is <em>direction.</em></h2>
+          <p>ANYAME KROM brings together people who want to understand their cultural roots, preserve and share African knowledge, encourage creativity, learn from spiritual and philosophical traditions, and take practical steps toward a stronger community.</p>
+          <p>We create space for conversation across generations, disciplines, cultures and the diaspora. Our identity is not frozen in the past: it grows as we learn, practice, create and contribute.</p>
+          <div class="statrow">
+            <div class="stat"><b>4 Pillars</b><span>Culture, Media, Education & Community</span></div>
+            <div class="stat"><b>Pan-African</b><span>Serving Continent & Global Diaspora</span></div>
+            <div class="stat"><b>Open</b><span>Collaborative Knowledge Stewardship</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pagecontent" style="background:#fff4d9">
+      <div class="wrap">
+        <p class="kicker">OUR MISSION, VISION & VALUES</p>
+        <h2 class="headline" style="margin-bottom:28px">What guides our <em>work.</em></h2>
+        <div class="contentblocks">
+          <article class="tile"><h3>Our Mission</h3><p>To nurture African identity, preserve cultural and ancestral knowledge, create access to learning and media, and encourage people to use their gifts in service of community and the future.</p></article>
+          <article class="tile"><h3>Our Vision</h3><p>A connected, conscious and culturally confident people who understand their heritage, build with purpose and share knowledge across generations and borders.</p></article>
+          <article class="tile"><h3>Our Values</h3><p>Unity, respect, truth-seeking, cultural integrity, service, creativity, learning, responsibility and mutual support across all traditions.</p></article>
+          <article class="tile"><h3>Our Philosophy</h3><p>We honor our roots while engaging the present and building toward the future. Heritage is living knowledge — it is to be studied, practiced, protected and thoughtfully renewed.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="pagecontent">
+      <div class="wrap two-col">
+        <div class="bodycopy">
+          <p class="kicker">MEANING & PURPOSE</p>
+          <h2 class="headline">Why the name<br><em>ANYAME KROM?</em></h2>
+          <p>Rooted in Akan linguistic heritage—where <em>Nyame</em> refers to the Creator and <em>Krom</em> means town, homeland, or sanctuary—ANYAME KROM evokes a spiritual home and a shared cultural gathering place under the sky.</p>
+          <h3>Our commitment to future generations</h3>
+          <p>We aim to create resources and opportunities that can be carried forward: accessible education, cultural documentation, media storytelling, community initiatives and spaces for dialogue. We welcome educators, researchers, creatives, and elders who help make this vision practical.</p>
+          <a class="btn dark" href="#community" style="margin-top:12px">Join the Movement ↗</a>
+        </div>
+        <div>
+          <p class="kicker">OUR FOUR-STAGE JOURNEY</p>
+          <div class="timeline">
+            <div class="timelineitem"><h3>01 · Remember</h3><p>Recover stories, cultural memory, indigenous languages, and ancestral knowledge with scholarly care and respect.</p></div>
+            <div class="timelineitem"><h3>02 · Reconnect</h3><p>Build living relationships across communities, generations, the African continent, and the global diaspora.</p></div>
+            <div class="timelineitem"><h3>03 · Renew</h3><p>Make heritage relevant through modern education, digital media, artistic creativity, and thoughtful innovation.</p></div>
+            <div class="timelineitem"><h3>04 · Build</h3><p>Translate shared cultural consciousness into enduring institutions, collaborative projects, and practical action.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  `,
+
+  media: `
+    <section class="pagehero">
+      <div class="wrap">
+        <p class="kicker">ANYAME KROM MEDIA</p>
+        <h1 class="headline">Our stories.<br>Our voices. Our <em>frequency.</em></h1>
+        <p class="lead">The digital broadcast and storytelling home of ANYAME KROM — bringing together live television programming, cultural radio, interviews, documentaries and educational series.</p>
+      </div>
+    </section>
+
+    <section class="pagecontent">
+      <div class="wrap">
+        ${mediaFeature()}
+        <div class="media-grid">
+          <a class="media-mini" href="#livetv">
+            <div><small class="eyebrow">BROADCAST CHANNEL</small><h3>Live TV</h3><p>Live teachings, panel conversations, cultural gatherings, and documentary features.</p></div>
+            <span class="linkline">OPEN TV CHANNEL ↗</span>
+          </a>
+          <a class="media-mini" href="#radio">
+            <div><small class="eyebrow">24/7 AUDIO STREAM</small><h3>Radio</h3><p>Audio reflections, oral history readings, interviews, and traditional & contemporary African music.</p></div>
+            <span class="linkline">OPEN RADIO PLAYER ↗</span>
+          </a>
+          <a class="media-mini" href="#programs">
+            <div><small class="eyebrow">ON DEMAND CATALOG</small><h3>Programs & Shows</h3><p>Explore 8 flagship series themes and filter by history, philosophy, or community stories.</p></div>
+            <span class="linkline">BROWSE ALL SERIES ↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="pagecontent" style="background:#fff4d9">
+      <div class="wrap">
+        <p class="kicker">EDITORIAL PILLARS</p>
+        <h2 class="headline">What we bring<br>to the <em>screen & airwaves.</em></h2>
+        <div class="contentblocks" style="margin-top:25px">
+          <article class="tile"><h3>Learning & Teaching</h3><p>Accessible sessions, lectures, visual explainers and practical masterclasses led by scholars and practitioners.</p></article>
+          <article class="tile"><h3>Culture & Documentation</h3><p>Living traditions, field interviews with artisans and elders, heritage preservation and documentary storytelling.</p></article>
+          <article class="tile"><h3>Open Conversations</h3><p>Thoughtful discussions, intergenerational perspectives and respectful dialogue around identity and the future.</p></article>
+          <article class="tile"><h3>Community Voices</h3><p>Showcasing creative work, lived experiences, grassroots initiatives and stories contributed by the community.</p></article>
+        </div>
+      </div>
+    </section>
+  `,
+
+  livetv: `
+    <section class="pagehero">
+      <div class="wrap">
+        <p class="kicker">ANYAME KROM LIVE TV</p>
+        <h1 class="headline">A window into culture,<br>knowledge & <em>conversation.</em></h1>
+        <p class="lead">The television space for live teachings, interviews, cultural events, educational programming, documentaries and community broadcasts.</p>
+      </div>
+    </section>
+
+    <section class="pagecontent">
+      <div class="wrap two-col">
+        <div>
+          <div class="streambox" id="tvPlayerBox">
+            <span class="livebadge" id="tvBadge">STANDBY · PREVIEW MODE</span>
+            <div id="tvScreenContent">
+              <button type="button" class="playcircle" id="tvPlayBtn" aria-label="Launch Broadcast Preview">▶</button>
+              <small>ANYAME KROM DIGITAL BROADCAST</small>
+              <h2 style="font:400 28px var(--serif);margin:8px 0">ANYAME KROM TV</h2>
+              <p>Click play to launch the interactive channel preview and test featured broadcast segments.</p>
+            </div>
+          </div>
+          <div class="filters" style="margin-top:14px">
+            <button type="button" class="filterbtn selected" data-tv-ch="0">Ch 1: Sankofa Dialogue</button>
+            <button type="button" class="filterbtn" data-tv-ch="1">Ch 2: Foundations of Greatness</button>
+            <button type="button" class="filterbtn" data-tv-ch="2">Ch 3: Living Heritage</button>
+          </div>
+        </div>
+        <div class="bodycopy">
+          <p class="kicker">ABOUT THE CHANNEL</p>
+          <h2 class="headline">Watch. Learn.<br><em>Connect.</em></h2>
+          <p>ANYAME KROM Live TV is built as a dedicated space for live cultural programming and on-demand educational media. Our direction centers on African heritage, identity, spiritual and philosophical teachings, and community storytelling.</p>
+          <h3>Broadcast Schedule Highlights</h3>
+          <div class="programlist">
+            <div class="programrow"><time>09:00 GMT</time><div><h3>Morning Wisdom & Proverbs</h3><p>Daily reflections on African philosophical traditions.</p></div><span class="tag">DAILY</span></div>
+            <div class="programrow"><time>14:00 GMT</time><div><h3>Foundations of Greatness</h3><p>Documentary series exploring African civilizations.</p></div><span class="tag">HISTORY</span></div>
+            <div class="programrow"><time>19:30 GMT</time><div><h3>The Sankofa Dialogue</h3><p>Live roundtable with thinkers across continent & diaspora.</p></div><span class="tag">LIVE</span></div>
+          </div>
+          <div style="margin-top:22px"><a class="btn dark" href="#programs">Explore All Programs ↗</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pagecontent" style="background:#fff4d9">
+      <div class="wrap">
+        <p class="kicker">PROGRAMMING AREAS</p>
+        <div class="contentblocks">
+          <article class="tile"><h3>Teachings & Masterclasses</h3><p>Dedicated learning sessions and visual presentations that make historical and philosophical ideas accessible.</p></article>
+          <article class="tile"><h3>Interviews & Panel Conversations</h3><p>Community voices, guests, practitioners, creators and diverse perspectives from across the African world.</p></article>
+          <article class="tile"><h3>Culture Documentaries</h3><p>Stories about history, cultural practice, heritage preservation and the contemporary African experience.</p></article>
+          <article class="tile"><h3>Live Gatherings & Events</h3><p>Broadcasts of cultural festivals, symposiums, discussions and special community events.</p></article>
+        </div>
+      </div>
+    </section>
+  `,
+
+  radio: `
+    <section class="pagehero">
+      <div class="wrap">
+        <p class="kicker">ANYAME KROM RADIO</p>
+        <h1 class="headline">Tune into the<br><em>voices of our people.</em></h1>
+        <p class="lead">An audio platform for culture, reflection, conversation, music, knowledge and stories — designed to accompany the listener wherever they are.</p>
+      </div>
+    </section>
+
+    <section class="pagecontent">
+      <div class="wrap two-col">
+        <div class="radio-panel" style="min-height:380px">
+          <div>
+            <p class="kicker">ONLINE AUDIO STREAM</p>
+            <h3>ANYAME KROM<br>RADIO</h3>
+            <p id="radioStatusText">Ready to play. Select a frequency channel below or press Play to listen to the ambient cultural soundscape preview.</p>
+          </div>
+          <div class="eq" id="radioEq" aria-hidden="true">${'<i></i>'.repeat(18)}</div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+            <button class="btn gold" id="radioToggleBtn" type="button">▶ PLAY AUDIO PREVIEW</button>
+            <select id="radioChannelSelect" class="searchbox" style="width:auto;padding:10px 14px;font-size:11px">
+              <option value="220">Channel 1 · Morning Frequencies (Warm Drone)</option>
+              <option value="261.63">Channel 2 · Wisdom & Reflection (Harmonic)</option>
+              <option value="196">Channel 3 · Voices of the Realm (Deep Pulse)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="bodycopy">
+          <p class="kicker">OUR AUDIO VISION</p>
+          <h2 class="headline">Listen with <em>purpose.</em></h2>
+          <p>ANYAME KROM Radio hosts a curated blend of reflective segments, long-form interviews, educational talks, oral history readings, and music spanning traditional rhythms to contemporary Pan-African artistry.</p>
+          <h3>Daily Audio Segments</h3>
+          <div class="programlist">
+            <div class="programrow"><time>06:00 GMT</time><div><h3>Morning Frequencies</h3><p>Instrumental kora, mbira, and morning meditation.</p></div><span class="tag">SOUND</span></div>
+            <div class="programrow"><time>12:00 GMT</time><div><h3>Voices of the Realm</h3><p>Stories, poetry, and dispatches from community members.</p></div><span class="tag">CULTURE</span></div>
+            <div class="programrow"><time>18:00 GMT</time><div><h3>Open Conversation</h3><p>Live call-in dialogue on heritage, education, and community building.</p></div><span class="tag">TALK</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pagecontent" style="background:#fff4d9">
+      <div class="wrap">
+        <p class="kicker">LISTENING EXPERIENCES</p>
+        <div class="contentblocks">
+          <article class="tile"><h3>Reflections</h3><p>Quiet moments for philosophical ideas, contemplation, proverbs, meaning and personal growth.</p></article>
+          <article class="tile"><h3>Interviews</h3><p>Conversations with artists, educators, thinkers, elders and community builders.</p></article>
+          <article class="tile"><h3>Culture & Sound</h3><p>Explore music traditions, contemporary creativity and stories about rhythm, instruments and identity.</p></article>
+          <article class="tile"><h3>Community Voices</h3><p>Hear perspectives, oral histories and creative contributions from listeners across the globe.</p></article>
+        </div>
+      </div>
+    </section>
+  `,
+
+  programs: `
+    <section class="pagehero">
+      <div class="wrap">
+        <p class="kicker">PROGRAMS & SHOWS</p>
+        <h1 class="headline">Explore ideas.<br>Discover <em>perspectives.</em></h1>
+        <p class="lead">Browse the flagship editorial and broadcast series of ANYAME KROM. Search by keyword or filter by subject area, and open any series brief for full details.</p>
+      </div>
+    </section>
+
+    <section class="pagecontent">
+      <div class="wrap">
+        <div class="searchbar">
+          <input class="searchbox" id="programSearch" type="search" placeholder="Search programs, topics or formats…" aria-label="Search programs">
+          <select id="programFilter" class="searchbox" style="width:auto" aria-label="Filter by category">
+            <option value="all">All categories (${programData.length})</option>
+            <option value="History & Civilizations">History & Civilizations</option>
+            <option value="Culture & Traditions">Culture & Traditions</option>
+            <option value="Identity & Heritage">Identity & Heritage</option>
+            <option value="Indigenous Knowledge">Indigenous Knowledge</option>
+            <option value="Interviews">Interviews</option>
+            <option value="Documentaries">Documentaries</option>
+            <option value="Education">Education</option>
+            <option value="Community Stories">Community Stories</option>
+          </select>
+        </div>
+        <div class="contentblocks" id="programGrid">${programCards()}</div>
+        <p id="programEmpty" class="formnote hidden">No programs match your search. Try another keyword or reset the category filter.</p>
+      </div>
+    </section>
+
+    <section class="pagecontent" style="background:#fff4d9">
+      <div class="wrap">
+        <p class="kicker">CONTENT APPROACH</p>
+        <div class="two-col">
+          <div class="bodycopy">
+            <h2 class="headline">Curiosity first.<br><em>Context always.</em></h2>
+            <p>We present cultural knowledge with rigor, humility, and proper context. Programs feature researchers, practitioners, artists, elders, and community members while honoring the distinct traditions of each region.</p>
+          </div>
+          <div class="tile">
+            <h3>Suggest a show or guest</h3>
+            <p>Have an idea for a documentary, an educational topic to explore, or an elder or creator whose story should be heard? Reach out and pitch your concept.</p>
+            <a href="#contact" class="btn dark">Send a Proposal ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  `,
+
+  culture: `
+    <section class="pagehero">
+      <div class="wrap">
+        <p class="kicker">CULTURE & HERITAGE ARCHIVE</p>
+        <h1 class="headline">A living archive.<br>A heritage <em>in motion.</em></h1>
+        <p class="lead">Explore African history, indigenous languages, philosophy, art, traditions, music, textiles and heritage across the diaspora. Click <strong>Read Entry</strong> on any card to explore the full overview.</p>
+      </div>
+    </section>
+
+    <section class="pagecontent">
+      <div class="wrap">
+        <div class="searchbar">
+          <input id="cultureSearch" class="searchbox" type="search" placeholder="Search archive topics, regions, or keywords…" aria-label="Search cultural archive">
+        </div>
+        <div class="filters" id="cultureFilters">
+          <button class="filterbtn selected" data-filter="all">All topics (${cultureData.length})</button>
+          <button class="filterbtn" data-filter="history">History</button>
+          <button class="filterbtn" data-filter="language">Language</button>
+          <button class="filterbtn" data-filter="symbols">Symbols & Art</button>
+          <button class="filterbtn" data-filter="wisdom">Philosophy</button>
+          <button class="filterbtn" data-filter="living">Living Heritage</button>
+        </div>
+        <div class="contentblocks" id="cultureGrid">${cultureCards()}</div>
+        <p id="cultureEmpty" class="formnote hidden">No archive topics match your filter. Adjust your search or select "All topics".</p>
+      </div>
+    </section>
+
+    <section class="imageband" style="background-image:url('https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1600&q=85')">
+      <div class="wrap">
+        <p class="kicker" style="color:var(--gold)">HERITAGE IS SHARED</p>
+        <h2 class="headline">Knowledge grows<br>when we <em>pass it on.</em></h2>
+      </div>
+    </section>
+
+    <section class="pagecontent">
+      <div class="wrap two-col">
+        <div class="bodycopy">
+          <h2 class="headline">Archive principles</h2>
+          <p>We document and share cultural information with respect and transparency. Every contribution identifies its cultural origin, community context, and sources—clearly distinguishing oral tradition, lived practice, and historical scholarship.</p>
+        </div>
+        <div class="tile">
+          <h3>Contribute to the archive</h3>
+          <p>Share an oral history, regional proverb, photograph, bibliography, or topic suggestion. Our editorial circle reviews submissions for inclusion in the living archive.</p>
+          <a href="#contact" class="btn dark">Submit a Contribution ↗</a>
+        </div>
+      </div>
+    </section>
+  `,
+
+  community: `
+    <section class="pagehero">
+      <div class="wrap">
+        <p class="kicker">ANYAME KROM COMMUNITY</p>
+        <h1 class="headline">Seven kingdoms.<br>One <em>people.</em></h1>
+        <p class="lead">A space to connect across backgrounds, interests, generations, the African continent and its diaspora — through learning, culture, creativity, service and shared purpose.</p>
+      </div>
+    </section>
+
+    <section class="pagecontent">
+      <div class="wrap split">
+        <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1200&q=85')">
+          <div class="phototag">BELONGING & PARTICIPATION</div>
+        </div>
+        <div class="bodycopy">
+          <p class="kicker">WELCOME TO THE CIRCLE</p>
+          <h2 class="headline">Your story belongs<br>in the <em>circle.</em></h2>
+          <p>The community is built around shared learning, cultural exchange, creativity, service, collaboration and collective purpose. Whether you are a student, artist, farmer, educator, entrepreneur or simply curious, there is room to contribute.</p>
+          <p>We encourage respectful dialogue, practical action and an openness to learn from one another across borders.</p>
+          <a class="btn dark" href="#joinCircleForm">Register Below ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="pagecontent communityband">
+      <div class="wrap">
+        <p class="kicker" style="color:var(--gold)">THE FRAMEWORK OF UNITY</p>
+        <h2 class="headline">The Seven <em>Pillars.</em></h2>
+        <p class="lead" style="margin-top:12px">“Seven kingdoms, one people” symbolizes the diverse gifts, disciplines, and regions of the African world uniting around common purpose.</p>
+        <div class="kingdomgrid">
+          ${sevenKingdoms.map(k => `
+            <div class="kingdomcard">
+              <small>PILLAR ${k.num}</small>
+              <h3>${k.name}</h3>
+              <p>${k.desc}</p>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    </section>
+
+    <section class="pagecontent" style="background:#fff4d9">
+      <div class="wrap">
+        <p class="kicker">COMMUNITY GATHERINGS & CIRCLES</p>
+        <h2 class="headline" style="margin-bottom:26px">Upcoming <em>Circles.</em></h2>
+        <div class="eventgrid">
+          <div class="eventcard">
+            <div>
+              <div class="date">LEARNING CIRCLE · MONTHLY</div>
+              <h3>Ancestral Philosophy & Ethics</h3>
+              <p>Open study session exploring Ubuntu, Ma’at, and Akan proverbs in contemporary leadership and daily life.</p>
+            </div>
+            <button type="button" class="btn sm dark rsvpbtn" data-event="Ancestral Philosophy & Ethics">RSVP FOR CIRCLE</button>
+          </div>
+          <div class="eventcard">
+            <div>
+              <div class="date">CULTURAL EXCHANGE · BI-WEEKLY</div>
+              <h3>Language & Storytelling Table</h3>
+              <p>Interactive session practicing greetings, idioms, and oral storytelling across African languages.</p>
+            </div>
+            <button type="button" class="btn sm dark rsvpbtn" data-event="Language & Storytelling Table">RSVP FOR CIRCLE</button>
+          </div>
+          <div class="eventcard">
+            <div>
+              <div class="date">BUILDERS LAB · QUARTERLY</div>
+              <h3>Creators & Educators Forum</h3>
+              <p>Connect talents, media producers, writers, and community organizers working on cultural projects.</p>
+            </div>
+            <button type="button" class="btn sm dark rsvpbtn" data-event="Creators & Educators Forum">RSVP FOR CIRCLE</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pagecontent" id="joinCircleForm">
+      <div class="wrap two-col">
+        <div>
+          <p class="kicker">STAY CONNECTED</p>
+          <h2 class="headline">Join the <em>circle.</em></h2>
+          <p class="lead">Register your interest and share what you would like to learn or contribute. We welcome members from every region and background.</p>
+        </div>
+        <div>
+          <form data-form="community" class="formgrid">
+            <div class="field"><label for="communityName">YOUR NAME</label><input id="communityName" required name="name" placeholder="Full name"></div>
+            <div class="field"><label for="communityEmail">EMAIL</label><input id="communityEmail" required name="email" type="email" placeholder="name@email.com"></div>
+            <div class="field full"><label for="communityRegion">CITY / COUNTRY (OPTIONAL)</label><input id="communityRegion" name="region" placeholder="e.g., Accra, London, Kingston, Nairobi"></div>
+            <div class="field full">
+              <label for="communityInterest">I'M INTERESTED IN</label>
+              <select id="communityInterest" required name="interest">
+                <option value="" disabled selected>Choose a focus area</option>
+                <option>Learning & education</option>
+                <option>Culture & heritage</option>
+                <option>Media & creative work</option>
+                <option>Community projects</option>
+                <option>Volunteering & facilitation</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="field full"><button class="btn dark" type="submit">REGISTER INTEREST ↗</button></div>
+          </form>
+          <div class="successmsg" data-success="community"></div>
+        </div>
+      </div>
+    </section>
+  `,
+
+  contact: `
+    <section class="pagehero">
+      <div class="wrap">
+        <p class="kicker">CONTACT ANYAME KROM</p>
+        <h1 class="headline">Let’s build a connection.<br><em>Let’s begin.</em></h1>
+        <p class="lead">General inquiries, partnerships, media proposals, collaborations and archive contributions — reach out and start a conversation.</p>
+      </div>
+    </section>
+
+    <section class="pagecontent">
+      <div class="wrap two-col">
+        <div class="bodycopy">
+          <p class="kicker">SEND A MESSAGE</p>
+          <h2 class="headline" style="font-size:40px">Your message<br>is welcome here.</h2>
+          <p>Select the category that best describes your message and include enough context so our team can route your note appropriately.</p>
+
+          <div class="contentblocks" style="margin:24px 0">
+            <div class="tile" style="padding:18px;min-height:auto">
+              <small class="eyebrow">MEDIA & PRESS</small>
+              <h3 style="font-size:19px">Program Pitches</h3>
+              <p style="font-size:12px;margin:0">Guest nominations, documentary ideas, and broadcast partnerships.</p>
+            </div>
+            <div class="tile" style="padding:18px;min-height:auto">
+              <small class="eyebrow">ARCHIVE DESK</small>
+              <h3 style="font-size:19px">Cultural Submissions</h3>
+              <p style="font-size:12px;margin:0">Oral histories, essays, photographs, and regional heritage research.</p>
+            </div>
+          </div>
+
+          <h3>Inquiry Categories</h3>
+          <p>General questions · Media and broadcast · Partnerships · Community involvement · Cultural archive contributions · Creative collaborations</p>
+        </div>
+
+        <div>
+          <form class="formgrid" data-form="contact">
+            <div class="field"><label for="contactName">NAME</label><input id="contactName" name="name" required placeholder="Your full name"></div>
+            <div class="field"><label for="contactEmail">EMAIL</label><input id="contactEmail" name="email" required type="email" placeholder="you@email.com"></div>
+            <div class="field full">
+              <label for="contactSubject">SUBJECT</label>
+              <select id="contactSubject" name="subject" required>
+                <option value="" disabled selected>Select inquiry category</option>
+                <option>General inquiry</option>
+                <option>Media & programming</option>
+                <option>Partnership</option>
+                <option>Community</option>
+                <option>Archive contribution</option>
+                <option>Collaboration</option>
+              </select>
+            </div>
+            <div class="field full"><label for="contactMessage">MESSAGE</label><textarea id="contactMessage" name="message" required minlength="10" placeholder="Tell us how we can connect…"></textarea></div>
+            <div class="field full"><button class="btn dark" type="submit">SUBMIT INQUIRY ↗</button></div>
+          </form>
+          <div class="successmsg" data-success="contact"></div>
+        </div>
+      </div>
+    </section>
+  `
+};
+
+/* Toast & Modal Utilities */
+function showToast(message) {
+  const t = document.querySelector('#toast');
+  t.textContent = message;
+  t.classList.add('show');
+  clearTimeout(showToast.timer);
+  showToast.timer = setTimeout(() => t.classList.remove('show'), 4200);
+}
+
+const modalBackdrop = document.querySelector('#modalBackdrop');
+function openModal(kicker, title, htmlBody) {
+  document.querySelector('#modalKicker').textContent = kicker;
+  document.querySelector('#modalTitle').textContent = title;
+  document.querySelector('#modalBody').innerHTML = htmlBody;
+  modalBackdrop.classList.add('open');
+}
+function closeModal() {
+  modalBackdrop.classList.remove('open');
+}
+document.querySelector('#modalClose').addEventListener('click', closeModal);
+modalBackdrop.addEventListener('click', e => {
+  if (e.target === modalBackdrop) closeModal();
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    closeModal();
+    dropdown.classList.remove('open');
+    dropdown.querySelector('button').setAttribute('aria-expanded', 'false');
+  }
+});
+
+/* Audio Preview Engine for Radio Page */
+let audioCtx = null;
+let oscNode = null;
+let gainNode = null;
+let isRadioPlaying = false;
+
+function stopRadioAudio() {
+  if (oscNode) {
+    try { oscNode.stop(); oscNode.disconnect(); } catch (_) {}
+    oscNode = null;
+  }
+  if (gainNode) {
+    try { gainNode.disconnect(); } catch (_) {}
+    gainNode = null;
+  }
+  isRadioPlaying = false;
+}
+
+function toggleRadioAudio(freq = 220) {
+  if (isRadioPlaying) {
+    stopRadioAudio();
+    return false;
+  }
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  if (!AudioContext) return false;
+  if (!audioCtx) audioCtx = new AudioContext();
+  if (audioCtx.state === 'suspended') audioCtx.resume();
+
+  oscNode = audioCtx.createOscillator();
+  gainNode = audioCtx.createGain();
+  oscNode.type = 'sine';
+  oscNode.frequency.setValueAtTime(Number(freq), audioCtx.currentTime);
+  gainNode.gain.setValueAtTime(0.04, audioCtx.currentTime);
+
+  oscNode.connect(gainNode);
+  gainNode.connect(audioCtx.destination);
+  oscNode.start();
+  isRadioPlaying = true;
+  return true;
+}
+
+/* Router & Page Wiring */
+const mediaRoutes = ['media', 'livetv', 'radio', 'programs'];
+
+function render() {
+  stopRadioAudio();
+  const key = (location.hash.slice(1).split('?')[0] || 'home');
+  app.innerHTML = pages[key] || pages.home;
+
+  // Update active nav states
+  document.querySelectorAll('[data-route]').forEach(a => {
+    a.classList.toggle('active', a.dataset.route === key);
+  });
+  document.querySelectorAll('[data-subroute]').forEach(a => {
+    a.classList.toggle('active', a.dataset.subroute === key);
+  });
+  const mediadrop = document.querySelector('#mediadrop');
+  mediadrop.classList.toggle('active', mediaRoutes.includes(key));
+  mediadrop.classList.remove('open');
+  mediadrop.querySelector('button').setAttribute('aria-expanded', 'false');
+
+  // Reset mobile menu
+  const navlinks = document.querySelector('#navlinks');
+  const navtoggle = document.querySelector('#navtoggle');
+  navlinks.classList.remove('show');
+  navtoggle.setAttribute('aria-expanded', 'false');
+  navtoggle.textContent = '☰';
+
+  window.scrollTo({ top: 0, behavior: 'instant' });
+  wirePage(key);
+}
+
+function wirePage(key) {
+  // Article Reader Triggers (Home & Culture pages)
+  document.querySelectorAll('[data-open-article]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = cultureData.find(x => x.id === btn.dataset.openArticle);
+      if (!item) return;
+      const bodyHtml = `
+        <p style="font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#a26b1e;font-weight:700;margin-bottom:16px">${item.region}</p>
+        ${item.article.map(p => `<p>${p}</p>`).join('')}
+        <div style="margin-top:24px;padding-top:16px;border-top:1px solid var(--line);display:flex;gap:12px;flex-wrap:wrap">
+          <a href="#culture" class="btn sm dark" onclick="document.querySelector('#modalBackdrop').classList.remove('open')">Explore Full Archive ↗</a>
+          <a href="#contact" class="btn sm" onclick="document.querySelector('#modalBackdrop').classList.remove('open')">Contribute to this Topic ↗</a>
+        </div>
+      `;
+      openModal(`ARCHIVE / ${item.cat.toUpperCase()}`, item.title, bodyHtml);
+    });
+  });
+
+  // Culture Page Filtering
+  if (key === 'culture') {
+    let current = 'all';
+    const search = document.querySelector('#cultureSearch');
+    const grid = document.querySelector('#cultureGrid');
+    const buttons = [...document.querySelectorAll('#cultureFilters .filterbtn')];
+
+    function applyCultureFilter() {
+      const q = search.value.toLowerCase().trim();
+      let count = 0;
+      grid.querySelectorAll('.culturecard').forEach(card => {
+        const show = (current === 'all' || card.dataset.cat === current) && (!q || card.dataset.text.includes(q));
+        card.classList.toggle('hidden', !show);
+        if (show) count++;
+      });
+      document.querySelector('#cultureEmpty').classList.toggle('hidden', count > 0);
+    }
+
+    buttons.forEach(b => b.addEventListener('click', () => {
+      current = b.dataset.filter;
+      buttons.forEach(x => x.classList.toggle('selected', x === b));
+      applyCultureFilter();
+    }));
+    search.addEventListener('input', applyCultureFilter);
+  }
+
+  // Programs Page Filtering & Preview Modal
+  if (key === 'programs') {
+    const search = document.querySelector('#programSearch');
+    const filter = document.querySelector('#programFilter');
+    const grid = document.querySelector('#programGrid');
+
+    function applyProgramFilter() {
+      const q = search.value.toLowerCase().trim();
+      const cat = filter.value;
+      let count = 0;
+      grid.querySelectorAll('.programcard').forEach(card => {
+        const show = (cat === 'all' || card.dataset.category === cat) && (!q || card.dataset.search.includes(q));
+        card.classList.toggle('hidden', !show);
+        if (show) count++;
+      });
+      document.querySelector('#programEmpty').classList.toggle('hidden', count > 0);
+    }
+
+    search.addEventListener('input', applyProgramFilter);
+    filter.addEventListener('change', applyProgramFilter);
+
+    document.querySelectorAll('[data-preview-program]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const prog = programData[Number(btn.dataset.previewProgram)];
+        if (!prog) return;
+        openModal(
+          `SERIES BRIEF · ${prog.cat.toUpperCase()}`,
+          prog.title,
+          `
+            <div class="tilemeta" style="margin-bottom:16px"><span class="pill">${prog.format}</span><span class="pill">${prog.host}</span></div>
+            <p>${prog.summary}</p>
+            <p>Each episode brings together primary sources, lived cultural context, and thoughtful dialogue designed for both lifelong learners and new audiences.</p>
+            <div style="margin-top:22px"><a href="#contact" class="btn sm dark" onclick="document.querySelector('#modalBackdrop').classList.remove('open')">Propose a Guest or Episode ↗</a></div>
+          `
+        );
+      });
+    });
+  }
+
+  // Live TV Interactive Preview
+  if (key === 'livetv') {
+    const channels = [
+      { title: 'The Sankofa Dialogue', tag: 'LIVE ROUNDTABLE · CH 01', desc: 'Panel conversation: Reconnecting African heritage with contemporary education and creative enterprise.' },
+      { title: 'Foundations of Greatness', tag: 'DOCUMENTARY · CH 02', desc: 'Special feature: Scholarship, astronomy, and manuscript preservation in historic Timbuktu.' },
+      { title: 'Living Heritage', tag: 'CULTURAL FEATURE · CH 03', desc: 'Field feature: Master weavers and the symbolic language of hand-loomed West African textiles.' }
+    ];
+    let currentCh = 0;
+    const screen = document.querySelector('#tvScreenContent');
+    const badge = document.querySelector('#tvBadge');
+    const chBtns = [...document.querySelectorAll('[data-tv-ch]')];
+
+    function loadChannel(idx, autoPlay = false) {
+      currentCh = idx;
+      chBtns.forEach(b => b.classList.toggle('selected', Number(b.dataset.tvCh) === idx));
+      const ch = channels[idx];
+      if (autoPlay) {
+        badge.textContent = '● ON AIR · PREVIEW STREAM';
+        screen.innerHTML = `
+          <small>${ch.tag}</small>
+          <h2 style="font:400 28px var(--serif);margin:10px 0">${ch.title}</h2>
+          <p>${ch.desc}</p>
+          <div class="eq playing" style="justify-content:center;margin:12px 0">${'<i></i>'.repeat(14)}</div>
+          <button type="button" class="btn sm light" id="tvStopBtn">■ STOP PREVIEW</button>
+        `;
+        document.querySelector('#tvStopBtn').addEventListener('click', () => loadChannel(currentCh, false));
+      } else {
+        badge.textContent = 'STANDBY · PREVIEW MODE';
+        screen.innerHTML = `
+          <button type="button" class="playcircle" id="tvPlayBtn" aria-label="Play channel">▶</button>
+          <small>${ch.tag}</small>
+          <h2 style="font:400 28px var(--serif);margin:8px 0">${ch.title}</h2>
+          <p>${ch.desc}</p>
+        `;
+        document.querySelector('#tvPlayBtn').addEventListener('click', () => loadChannel(currentCh, true));
+      }
+    }
+
+    document.querySelector('#tvPlayBtn').addEventListener('click', () => loadChannel(currentCh, true));
+    chBtns.forEach(b => b.addEventListener('click', () => loadChannel(Number(b.dataset.tvCh), true)));
+  }
+
+  // Radio Interactive Audio Preview
+  if (key === 'radio') {
+    const toggleBtn = document.querySelector('#radioToggleBtn');
+    const select = document.querySelector('#radioChannelSelect');
+    const status = document.querySelector('#radioStatusText');
+    const eq = document.querySelector('#radioEq');
+
+    toggleBtn.addEventListener('click', () => {
+      const playing = toggleRadioAudio(select.value);
+      eq.classList.toggle('playing', playing);
+      toggleBtn.textContent = playing ? '■ STOP AUDIO PREVIEW' : '▶ PLAY AUDIO PREVIEW';
+      status.textContent = playing
+        ? `Now playing ambient frequency preview (${select.options[select.selectedIndex].text}).`
+        : 'Audio preview paused. Press Play to resume listening.';
+    });
+
+    select.addEventListener('change', () => {
+      if (isRadioPlaying) {
+        stopRadioAudio();
+        toggleRadioAudio(select.value);
+        status.textContent = `Switched to ${select.options[select.selectedIndex].text}.`;
+      }
+    });
+  }
+
+  // Community RSVP Buttons
+  if (key === 'community') {
+    document.querySelectorAll('.rsvpbtn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const joined = btn.classList.toggle('gold');
+        btn.classList.toggle('dark', !joined);
+        btn.textContent = joined ? '✓ INTEREST REGISTERED' : 'RSVP FOR CIRCLE';
+        showToast(joined
+          ? `RSVP noted for "${btn.dataset.event}". Complete the form below to stay updated.`
+          : `RSVP removed for "${btn.dataset.event}".`);
+      });
+    });
+  }
+
+  // Page Forms (Contact & Community)
+  app.querySelectorAll('form[data-form]').forEach(form => {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+      const kind = form.dataset.form;
+      const data = Object.fromEntries(new FormData(form).entries());
+      const success = document.querySelector(`[data-success="${kind}"]`);
+      if (success) {
+        success.innerHTML = kind === 'contact'
+          ? `<strong>Thank you, ${escapeHtml(data.name)}.</strong> Your <em>${escapeHtml(data.subject)}</em> inquiry has been recorded locally for preview. Connect an email endpoint or CRM webhook to enable live dispatch.`
+          : `<strong>Welcome to the circle, ${escapeHtml(data.name)}!</strong> Your interest in <em>${escapeHtml(data.interest)}</em> has been registered locally.`;
+        success.classList.add('show');
+      }
+      form.reset();
+      showToast(kind === 'contact' ? 'Inquiry validated & previewed.' : 'Community registration validated.');
+    });
+  });
+}
+
+function escapeHtml(str = '') {
+  return str.replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
+}
+
+/* Global Navigation & Footer Wiring (Bound Once) */
+const dropdown = document.querySelector('#mediadrop');
+dropdown.querySelector('button').addEventListener('click', e => {
+  e.stopPropagation();
+  const isOpen = dropdown.classList.toggle('open');
+  dropdown.querySelector('button').setAttribute('aria-expanded', isOpen);
+});
+
+document.addEventListener('click', e => {
+  if (!dropdown.contains(e.target)) {
+    dropdown.classList.remove('open');
+    dropdown.querySelector('button').setAttribute('aria-expanded', 'false');
+  }
+});
+
+document.querySelector('#navtoggle').addEventListener('click', () => {
+  const nav = document.querySelector('#navlinks');
+  const open = nav.classList.toggle('show');
+  const toggle = document.querySelector('#navtoggle');
+  toggle.setAttribute('aria-expanded', open);
+  toggle.textContent = open ? '×' : '☰';
+});
+
+document.querySelector('#newsletterForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const form = e.target;
+  if (!form.reportValidity()) return;
+  const email = new FormData(form).get('email');
+  showToast(`Subscribed ${email} to ANYAME KROM updates (preview mode).`);
+  form.reset();
+});
+
+window.addEventListener('hashchange', render);
+document.querySelector('#year').textContent = new Date().getFullYear();
+render();
+</script>
+</body>
+</html>
